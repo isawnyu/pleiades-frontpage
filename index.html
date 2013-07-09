@@ -3,13 +3,57 @@
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<head prefix="dc:http://purl.org/dc/elements/1.1/ dcterms:http://purl.org/dc/terms/ og:http://ogp.me/ns#" itemscope itemtype="http://schema.org/WebPage">
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
   <title>pleiades.stoa.org</title>
+
+  <!-- Dublin Core metadata -->
+  <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
+  <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" />
+  <meta name="DC.title" property="dc:title" itemprop="name" lang="en" content="Pleiades: A community-built gazetteer and graph of ancient places"/>
+  <meta name="DC.description" property="dc:description" itemprop="description" lang="en" content="Pleiades gives scholars, students, and enthusiasts worldwide the ability to use, create, and share historical geographic information about the ancient world in digital form."/>
+  <meta name="DC.subject" property="dc:subject" itemprop="about" lang="en" content="Geography, Ancient"/>
+  <meta name="DC.type" property="dc:type" lang="en" content="Collection"/>
+  <meta name="DC.type" property="dc:type" lang="en" content="Dataset"/>
+  <meta name="DC.type" property="dc:type" lang="en" content="Service"/>
+  <meta name="DC.type" property="dc:type" lang="en" content="Interactive Resource"/>
+  <meta name="DC.date" property="dc:date" content="2006-"/>
+  <meta name="DC.publisher" property="dc:publisher" itemprop="publisher" lang="en" content="Institute for the Study of the Ancient World, New York University"/>
+  <meta name="DC.publisher" property="dc:publisher" itemprop="publisher" lang="en" content="Ancient World Mapping Center, University of North Carolina at Chapel Hill"/>
+  <meta name="DC.language" property="dc:language" itemprop="inLanguage" content="en"/>
+  <meta name="DC.rights" property="dc:rights" itemprop="copyrightHolder" lang="en" content="Copyright New York University, University of North Carolina at Chapel Hill, and the contributors."/>
+  <meta name="DCTERMS.license" property="dcterms:license" content="http://creativecommons.org/licenses/by/3.0/us/"/>
+  <meta name="DCTERMS.bibliographicCitation" property="dcterms:bibliographicCitation" lang="en" content="R. Bagnall et al. (eds.). Pleiades. 2006-. http://pleiades.stoa.org."/>
+  <meta name="DC.identifier" property="dc:identifier" itemprop="url" content="http://pleiades.stoa.org"/>
+  <meta name="DC.identifier" property="dc:identifier" content="http://www.worldcat.org/oclc/768967352"/>
+  <!-- editors: -->
+  <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Roger Bagnall"/>
+  <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Richard J.A. Talbert"/>
+  <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Jeffrey Becker"/>
+  <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Tom Elliott"/>
+  <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Sean Gillies"/>
+  <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Michael McCormick"/>
+  <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Adam Rabinowitz"/>
+  <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Brian Turner"/>
+  <!-- reviewers: -->
+  <meta name="DC.contributor" property="dc:contributor" itemprop="contributor" lang="en" content="Arthur De Graauw"/>
+  <meta name="DC.contributor" property="dc:contributor" itemprop="contributor" lang="en" content="Stuart Dunn"/>
+  <meta name="DC.contributor" property="dc:contributor" itemprop="contributor" lang="en" content="Noah Kaye"/>
+  <meta name="DC.contributor" property="dc:contributor" itemprop="contributor" lang="en" content="Perry Scalfano"/>
+  <meta name="DC.contributor" property="dc:contributor" itemprop="contributor" lang="en" content="Scott Vanderbilt"/>
+  <!-- end Dublin Core metadata -->
+
+  <!-- open graph metadata -->
+  <meta property="og:title" content="Pleiades: A community-built gazetteer and graph of ancient places" />
+  <meta property="og:type" content="og:website" />
+  <meta property="og:url" content="http://pleiades.stoa.org" />
+  <meta property="og:image" content="http://pleiades.stoa.org/images/pleiades-social-logo/image" />
+  <meta property="og:description" content="Pleiades gives scholars, students, and enthusiasts worldwide the ability to use, create, and share historical geographic information about the ancient world in digital form."/>
+  <!-- end open graph metadata -->
+
   <meta name="description" content="Pleiades gives scholars, students, and enthusiasts worldwide the ability to use, create, and share historical geographic information about the ancient world in digital form.">
-  <meta name="author" content="">
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -46,94 +90,84 @@
     
     <header id="header">
      <img class="logo" src="img/pleiades-logo-neg-tag.png" alt="Pleiades Logo">
-
     </header>
 
 
     <div id="mapchicklets" class="chicklets">
-      <a href="http://pleiades.stoa.org/news/changes.atom" title="Changes: subscribe to an GeoRSS feed of the most recent changes and additions to Pleiades content"><img id="georssicon" src="img/georss.png"/></a>
+      <a href="http://pleiades.stoa.org/news/changes.atom" title="Changes: subscribe to an GeoRSS feed of the most recent changes and additions to Pleiades content"><img id="georssicon" src="img/georss.png" alt="GeoRSS Icon"/></a>
     </div>
 
 
     <div id="main" role="main">
-
-    <div id="middle">
-      <div class="middle align-center">
-        <p class="app-welcome">
-          A community-built gazetteer and graph of ancient places
-        </p>
-      </div>
-    </div>
-
-    <div id="bottom">
-      <!-- class="bottom align-center" -->
-      <div id="map" title="A slideshow of random places from Pleiades. Press P to pause/play, J to go back one step, or K to advance. Press Esc to terminate the slideshow. Reload the page to begin again."></div>
-      <div id="links" class="bottom align-center">
-        <p>
-          <a href="http://pleiades.stoa.org/home">about</a> &#183;
-          <a href="http://pleiades.stoa.org/places">browse</a> &#183;
-          <a href="http://pleiades.stoa.org/downloads">download</a> &#183;
-          <a href="http://pleiades.stoa.org/news/blog">blog</a> &#183;
-          <a href="http://pleiades.stoa.org/credits">credits</a>
-
-        </p>
-      </div>
-      <div id="search-form" class="bottom align-center">
-        <br/>
-        <form action="http://pleiades.stoa.org/search">
-          <fieldset>
-            <legend id="placesSearchLegend" style="visibility:hidden">Search the 42 Places</legend>
-            <input class="text" type="text" id="q" name="SearchableText" cols="40" placeholder="Internum Mare" value="" required="1">
-            <input type="hidden" name="portal_type" value="Place">
-            <input class="submit" type="submit" name="submit" value="Search">
-          </fieldset>
-        </form>
-        <br/>
-      </div>
-
-      <div id="more">
-        <div class="left">
-          <p>Pleiades is a historical <abbr title="a geographical dictionary or encyclopedia that provides information about places and placenames">gazetteer</abbr> and more. It gives scholars, students and enthusiasts worldwide the ability to use, create, share, and map historical geographic information about the ancient world. It associates names and locations in time and provides structured information about the quality and provenance of these entities.</p>
-          <p>There is also a <abbr title="Computer scientists use the term 'graph' to denote an information model in which individual information objects are linked together in pairwise fashion and those linkages can be exploited to find related information, infer dependencies and implications, and even create new knowledge programmatically">graph</abbr> in Pleiades: names and locations are collected into conceptual bundles (places) and these collections are associated with other geographically connected places.</p>
-          <p>Pleiades identifies places within the emerging web of ancient world linked data. It is an authoritative hub in an expanding constellation of online publications that treat the histories, languages, texts, and artifacts of antiquity.</p>
-          <p><a href="http://pleiades.stoa.org/places/">More about the data ...</a></p>
+      <div id="middle">
+        <div class="middle align-center">
+          <p class="app-welcome">
+            A community-built gazetteer and graph of ancient places
+          </p>
         </div>
-        <div class="right">
-        <p>Pleiades is one hundred percent open source, one hundred percent openly licensed and one hundred percent editable.</p>
-        <p>Our open source software gets used and improved by a diverse crowd of programmers in the humanities and beyond. Our openly licensed resources have no costs attached, no surprises or encumberances.</p>
-        <p>Pleiades is a continuously published scholarly reference work for the 21st century. We embrace the new paradigm of citizen humanities, encouraging contributions from any knowledgeable person and doing so in a context of pervasive peer review.  Pleiades welcomes your contribution, no matter how small, and we have a number of useful tasks suitable for volunteers of every interest.</p>
-        <p><a href="http://pleiades.stoa.org/welcome">More about contributing ...</a></p>
-        </div>
-        <div class="clearfix"></div>
-      </div>
-    </div>
+      </div> <!-- end div@id=middle -->
 
+      <div id="bottom">
+        <div id="map" title="A slideshow of random places from Pleiades. Press P to pause/play, J to go back one step, or K to advance. Press Esc to terminate the slideshow. Reload the page to begin again."></div>
 
+        <div id="links" class="bottom align-center">
+          <p>
+            <a href="http://pleiades.stoa.org/home">about</a> &#183;
+            <a href="http://pleiades.stoa.org/places">browse</a> &#183;
+            <a href="http://pleiades.stoa.org/downloads">download</a> &#183;
+            <a href="http://pleiades.stoa.org/news/blog">blog</a> &#183;
+            <a href="http://pleiades.stoa.org/credits">credits</a>
+          </p>
+        </div> <!-- end div@id=links -->
 
-    <div id="sponsors" class="bottom align-center">
-      <p>Pleiades is supported by:</p>
-      <img src="img/NEH-Logo-Horizontal_RGB.png">
-      <div class="disclaimer">Any views, findings, conclusions, or recommendations expressed in this publication do not necessarily reflect those of the National Endowment for the Humanities.</div>
+        <div id="search-form" class="bottom align-center">
+          <br/>
+          <form action="http://pleiades.stoa.org/search">
+            <fieldset>
+              <legend id="placesSearchLegend" style="visibility:hidden">Search the 42 Places</legend>
+              <input class="text" type="text" id="q" name="SearchableText" cols="40" placeholder="Internum Mare" value="" required="1">
+              <input type="hidden" name="portal_type" value="Place">
+              <input class="submit" type="submit" name="submit" value="Search">
+            </fieldset>
+          </form>
+          <br/>
+        </div> <!-- end div@id=search-form -->
 
-    </div>
-    </div>
+        <div id="more">
+          <div class="left">
+            <p>Pleiades is a historical <abbr title="a geographical dictionary or encyclopedia that provides information about places and placenames">gazetteer</abbr> and more. It gives scholars, students and enthusiasts worldwide the ability to use, create, share, and map historical geographic information about the ancient world. It associates names and locations in time and provides structured information about the quality and provenance of these entities.</p>
+            <p>There is also a <abbr title="Computer scientists use the term 'graph' to denote an information model in which individual information objects are linked together in pairwise fashion and those linkages can be exploited to find related information, infer dependencies and implications, and even create new knowledge programmatically">graph</abbr> in Pleiades: names and locations are collected into conceptual bundles (places) and these collections are associated with other geographically connected places.</p>
+            <p>Pleiades identifies places within the emerging web of ancient world linked data. It is an authoritative hub in an expanding constellation of online publications that treat the histories, languages, texts, and artifacts of antiquity.</p>
+            <p><a href="http://pleiades.stoa.org/places/">More about the data ...</a></p>
+          </div>
+          <div class="right">
+            <p>Pleiades is one hundred percent open source, one hundred percent openly licensed and one hundred percent editable.</p>
+            <p>Our open source software gets used and improved by a diverse crowd of programmers in the humanities and beyond. Our openly licensed resources have no costs attached, no surprises or encumberances.</p>
+            <p>Pleiades is a continuously published scholarly reference work for the 21st century. We embrace the new paradigm of citizen humanities, encouraging contributions from any knowledgeable person and doing so in a context of pervasive peer review.  Pleiades welcomes your contribution, no matter how small, and we have a number of useful tasks suitable for volunteers of every interest.</p>
+            <p><a href="http://pleiades.stoa.org/welcome">More about contributing ...</a></p>
+          </div>
+          <div class="clearfix"></div>
+        </div> <!-- end div@id=more -->
+      </div> <!-- end div@id=bottom -->
+
+      <div id="sponsors" class="bottom align-center">
+        <p>Pleiades is supported by:</p>
+        <img src="img/NEH-Logo-Horizontal_RGB.png" alt="Logo of the National Endowment for the Humanities">
+        <div class="disclaimer">Any views, findings, conclusions, or recommendations expressed in this publication do not necessarily reflect those of the National Endowment for the Humanities.</div>
+      </div> <!-- end div@id=sponsors -->
+    </div> <!-- end div@id=main -->
 
     <footer id="footer">
-          <div id="footerchicklets" class="chicklets">
-      <a href="http://pleiades.stoa.org/news/blog/RSS" title="News: subscribe to an RSS feed of the latest news from the Pleiades Project Blog"><img src="img/rss.png" alt="RSS feed icon"/></a>
-      <a href="http://www.flickr.com/photos/tags/pleiades%3A%2A/" title="Photos: view pictures of Pleiades places on Flickr"><img src="img/flickr.png"/></a>
-      <a href="https://twitter.com/search/realtime?q=%23adfines" title="Twitter: read the latest tweets about Pleiades"><img src="img/twitter.png"/></a>
-
-    </div>
+      <div id="footerchicklets" class="chicklets">
+        <a href="http://pleiades.stoa.org/news/blog/RSS" title="News: subscribe to an RSS feed of the latest news from the Pleiades Project Blog"><img src="img/rss.png" alt="RSS feed icon"/></a>
+        <a href="http://www.flickr.com/photos/tags/pleiades%3A%2A/" title="Photos: view pictures of Pleiades places on Flickr"><img src="img/flickr.png" alt="Flickr.com icon"/></a>
+        <a href="https://twitter.com/search/realtime?q=%23adfines" title="Twitter: read the latest tweets about Pleiades"><img src="img/twitter.png" alt="Twitter icon"/></a>
+      </div>
       <div class="rights">Some rights reserved (<abbr title="Creative Commons Attribution License">cc-by</abbr>) Ancient World Mapping Center, Institute for the Study of the Ancient World and the Contributors</div>
-
-
-
     </footer>
 
   </div> <!--! end of #container -->
 
-</div>
   <!-- Map info window content template -->
   <div id="infoWindowContent" style="display:none">
     <div id="iwcContainer" class="align-center">
