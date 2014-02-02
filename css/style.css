@@ -121,6 +121,7 @@ ul#site-actions > li > a:hover {
   position: absolute;
   top: 133px;
   right: 3px;
+  padding-right: 1em;
 }
 #footerchicklets {
   float: left;
@@ -145,20 +146,30 @@ ul#site-actions > li > a:hover {
 }
 #top,#top-small,#bottom{width:100%;}
 #middle{height:30px;background:url('../img/middlebg.png') repeat-x;border-top:2px solid #ffffff;border-bottom:2px solid #b2b2b2;vertical-align:center;}
-#map {height:400px;}
+#map {height:400px;   border-bottom:1px solid #b2b2b2;
+}
+#aboutmap {
+  font-style: italic;
+  color: gray;
+  text-align: center;
+}
 #sponsors{background:#fff;padding:10px;vertical-align:center;}
 #links{
   margin: 0;
-  padding: 8px 0;
+  padding: 0;
+  padding-top: 24px;
+  padding-bottom: 8px;
   /* background:url('../img/middlebg.png') repeat-x; */
   background-color: #ffffff;
-  border-top:1px solid #b2b2b2;
 }
 #links > p {
   margin: 0px;
   padding: 0px;
   text-transform: lowercase;
-  font-size: 18px;
+  font-size: 22px;
+}
+#placesSearchLegend {
+  text-transform: lowercase;
 }
 a, a:visited, a:link {
   color: #2575AD;

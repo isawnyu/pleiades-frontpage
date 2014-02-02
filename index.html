@@ -31,13 +31,18 @@
   <!-- editors: -->
   <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Roger Bagnall"/>
   <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Richard J.A. Talbert"/>
-  <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Jeffrey Becker"/>
   <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Tom Elliott"/>
+  <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Ross Twele"/>
+  <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Jeffrey Becker"/>
   <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Sean Gillies"/>
+  <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Ryan Horne"/>
   <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Michael McCormick"/>
   <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Adam Rabinowitz"/>
   <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Brian Turner"/>
+
   <!-- reviewers: -->
+  <meta name="DC.contributor" property="dc:contributor" itemprop="contributor" lang="en" content="Sarah Bond"/>
+  <meta name="DC.contributor" property="dc:contributor" itemprop="contributor" lang="en" content="Stefano Costa"/>
   <meta name="DC.contributor" property="dc:contributor" itemprop="contributor" lang="en" content="Arthur De Graauw"/>
   <meta name="DC.contributor" property="dc:contributor" itemprop="contributor" lang="en" content="Stuart Dunn"/>
   <meta name="DC.contributor" property="dc:contributor" itemprop="contributor" lang="en" content="Noah Kaye"/>
@@ -94,7 +99,11 @@
 
 
     <div id="mapchicklets" class="chicklets">
+      <a href="https://twitter.com/PleiadesProject" title="Twitter: follow @PleiadesProject"><img src="img/twitter.png" alt="Twitter icon"/></a>
+      <a href="https://www.facebook.com/PleiadesProject" title="Facebook: follow PleiadesProject"><img src="img/facebook.png" alt="Facebook icon"/></a>
+      <a href="http://pleiades.stoa.org/news/blog/RSS" title="News: subscribe to an RSS feed of the latest news from the Pleiades Project Blog"><img src="img/rss.png" alt="RSS feed icon"/></a>
       <a href="http://pleiades.stoa.org/news/changes.atom" title="Changes: subscribe to an GeoRSS feed of the most recent changes and additions to Pleiades content"><img id="georssicon" src="img/georss.png" alt="GeoRSS Icon"/></a>
+      <a href="http://www.flickr.com/groups/pleiades-places/pool" title="Flickr: view open-licensed photos of Pleiades places in the 'Pleiades Places Group'"><img src="img/flickr.png" alt="Flickr.com icon"/></a>
     </div>
 
 
@@ -110,6 +119,8 @@
       <div id="bottom">
         <div id="map" title="A slideshow of random places from Pleiades. Press P to pause/play, J to go back one step, or K to advance. Press Esc to terminate the slideshow. Reload the page to begin again."></div>
 
+        <div id="aboutmap">Dynamic map application and page design by <a href="http://sgillies.net/">Sean Gillies</a> for <a href="http://isaw.nyu.edu" title="Institute for the Study of the Ancient World (NYU)">ISAW</a>. Ancient terrain basemap by <a href="https://unc.academia.edu/RyanHorne">Ryan Horne</a> for <a href="http://awmc.unc.edu" title="Ancient World Mapping Center (UNC-CH)">AWMC</a>.</div>
+
         <div id="links" class="bottom align-center">
           <p>
             <a href="http://pleiades.stoa.org/home">about</a> &#183;
@@ -124,7 +135,7 @@
           <br/>
           <form action="http://pleiades.stoa.org/search">
             <fieldset>
-              <legend id="placesSearchLegend" style="visibility:hidden">Search the 42 Places</legend>
+              <legend id="placesSearchLegend" style="visibility:hidden">search the 42 places</legend>
               <input class="text" type="text" id="q" name="SearchableText" cols="40" placeholder="Internum Mare" value="" required="1">
               <input type="hidden" name="portal_type" value="Place">
               <input class="submit" type="submit" name="submit" value="Search">
@@ -159,9 +170,6 @@
 
     <footer id="footer">
       <div id="footerchicklets" class="chicklets">
-        <a href="http://pleiades.stoa.org/news/blog/RSS" title="News: subscribe to an RSS feed of the latest news from the Pleiades Project Blog"><img src="img/rss.png" alt="RSS feed icon"/></a>
-        <a href="http://www.flickr.com/groups/pleiades-places/pool" title="Flickr: view open-licensed photos of Pleiades places in the 'Pleiades Places Group'"><img src="img/flickr.png" alt="Flickr.com icon"/></a>
-        <a href="https://twitter.com/PleiadesProject" title="Twitter: follow @PleiadesProject"><img src="img/twitter.png" alt="Twitter icon"/></a>
         <a class="oomph" href="https://twitter.com/search/realtime?q=%23adfines" title="Twitter: read the latest tweets about Pleiades">#adfines</a>
       </div>
       <div class="rights">Some rights reserved (<abbr title="Creative Commons Attribution License">cc-by</abbr>) Ancient World Mapping Center, Institute for the Study of the Ancient World and the Contributors</div>
@@ -206,7 +214,9 @@
     
     var tiles = L.tileLayer(
     //    'http://static.ahlfeldt.se/srtm/imperium/{z}/{x}/{y}.png', {
-        'http://api.tiles.mapbox.com/v3/isawnyu.map-p75u7mnj/{z}/{x}/{y}.png', {
+    //    'http://api.tiles.mapbox.com/v3/isawnyu.map-p75u7mnj/{z}/{x}/{y}.png', {
+        'http://api.tiles.mapbox.com/v3/isawnyu.map-knmctlkh/{z}/{x}/{y}.png', {
+
             maxZoom: 7
             });
             
