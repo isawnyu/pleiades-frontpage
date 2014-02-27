@@ -190,7 +190,7 @@
     </div>
   </div>
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
   <script>
       /* Get count of places from API status */
@@ -207,17 +207,26 @@
   </script>
   <script src="http://cdn.leafletjs.com/leaflet-0.4.4/leaflet.js"></script>
   <script>
-    var latlng0 = new L.LatLng(35.0, 20.0);
-    
-    /* Map is initialized in the show() function below */
-    var map = null;
+    var latlng0 = new L.LatLng(38.0, 42.0);
     
     var tiles = L.tileLayer(
     //    'http://static.ahlfeldt.se/srtm/imperium/{z}/{x}/{y}.png', {
     //    'http://api.tiles.mapbox.com/v3/isawnyu.map-p75u7mnj/{z}/{x}/{y}.png', {
         'http://api.tiles.mapbox.com/v3/isawnyu.map-knmctlkh/{z}/{x}/{y}.png', {
 
-            maxZoom: 7
+            maxZoom: 7,
+            reuseTiles: true,
+            updateWhenIdle: true,
+            noWrap: true
+            });
+
+    var ppoints = L.tileLayer(
+        'http://api.tiles.mapbox.com/v3/isawnyu.75cul3di/{z}/{x}/{y}.png', {
+            maxZoom: 7,
+            reuseTiles: true,
+            updateWhenIdle: true,
+            opacity: 0.5,
+            noWrap: true
             });
             
     var placeIcon = new L.Icon({
@@ -242,6 +251,31 @@
     /* Begin in recent-seeking state */
     var state = "recent-seeking";
     var url = "http://pleiades.stoa.org/api/ssdRecentPlaceJson";
+
+    var map = null;
+
+    function preset() {
+      var d = { 
+        "bbox": null
+      }
+      map = L.map('map', {
+          center: latlng0,
+          zoom: 4,
+          closePopupOnClick: false,
+          dragging: false,
+          touchZoom: false,
+          scrollWheelZoom: false,
+          doubleClickZoom: false,
+          boxZoom: false,
+          keyboard: false,
+          zoomControl: false,
+          attributionControl: false });
+      tiles.addTo(map);
+      ppoints.addTo(map);
+      timer = setTimeout(play, interval);
+    }
+    
+  
 
     function play() {
       
@@ -341,23 +375,8 @@
         latlng = new L.LatLng(
           (bounds[1]+bounds[3])/2.0, (bounds[0]+bounds[2])/2.0);
       }
-
-      if (map == null) {
-        map = L.map('map', {
-          center: latlng,
-          zoom: 6,
-          closePopupOnClick: false,
-          dragging: false,
-          touchZoom: false,
-          scrollWheelZoom: false,
-          doubleClickZoom: false,
-          boxZoom: false,
-          keyboard: false,
-          zoomControl: false,
-          attributionControl: false });
-        tiles.addTo(map);
-        marker.addTo(map);
-      }
+      map.zoom = 6
+      marker.addTo(map);
 
       map.closePopup();
       var msg = $("#infoWindowContent").clone(true, true);
@@ -393,13 +412,20 @@
       marker.setLatLng(latlng);
       map.openPopup(infoWindow);
 
-      if (bounds == null) {
-        map.panTo([latlng.lat+2.0, latlng.lng]);
-        map.setZoom(5);
+      if (count == 1) {
+        po = {"animate":true, "duration":3.0}
       }
       else {
-        map.panTo([latlng.lat+1.2, latlng.lng]);
-        map.setZoom(6);
+        po = {"animate":true}
+      }
+      zo = {"animate":true}
+      if (bounds == null) {
+        map.panTo([latlng.lat+2.0, latlng.lng], po);
+        map.setZoom(5, zo);
+      }
+      else {
+        map.panTo([latlng.lat+1.2, latlng.lng], po);
+        map.setZoom(6, zo);
       }
     }
 
@@ -419,7 +445,7 @@
       else if (e.keyCode == 75) { forward(); } // j goes forward
     });
 
-    $(document).ready(function(){play();});
+    $(document).ready(function(){preset();});
 
   </script>
 
