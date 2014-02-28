@@ -232,12 +232,15 @@
             });
             
     var placeIcon = new L.Icon({
-        iconUrl: "http://atlantides.org/images/justice-blue.png" });
+        iconUrl: "http://atlantides.org/images/justice-blue.png",
+        iconSize:     [32, 37],
+        iconAnchor:   [16, 37]
+      });
     var marker = new L.Marker([-90, 45], {icon: placeIcon});
 
     var msg = null;
     var infoWindow = new L.Popup({
-        offset: new L.Point(16, 3),
+        offset: new L.Point(0, -30),
         closeButton: false,
         maxWidth: 500 });
 
