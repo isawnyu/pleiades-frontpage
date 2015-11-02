@@ -1,0 +1,41 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+body {padding-top:50px;}
+#map {border-bottom:1px solid #b2b2b2;height:400px;}
+div.unlocated iframe {opacity: 0.25;}
+
+legend {border: none; text-align: center; padding: 6px 12px; margin-top: 20px; margin-bottom: 0px}
+
+.pleiades-description > div {padding:1em 2em;}
+.pleiades-description p {padding: 1em;}
+.pleiades-support > div {padding:1em 2em;}
+.pleiades-support .thumbnail {border:none; box-shadow:none;}
+.pleiades-support .thumbnail img {max-height: 150px;}
+
+.pleiades-rights {background: #333;
+    height: 40px;
+    line-height: 40px;color:white;}
+
+#results > div > div {padding:2em;}
+
+ul.ui-autocomplete {background-color:white;}
+
+nav.navbar-default { background-image: url('http://pleiades.stoa.org/img/background-slice.png'); text-transform: lowercase;}
+nav.navbar-default .navbar-brand {color: white; text-shadow: none;}
+nav.navbar-default .navbar-nav > li > a {color: white; text-shadow: none;}
+
+
+
+
+
+
+
+
+
+
+
+
