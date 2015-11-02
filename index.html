@@ -1,501 +1,251 @@
-<!doctype html>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-<head prefix="dc:http://purl.org/dc/elements/1.1/ dcterms:http://purl.org/dc/terms/ og:http://ogp.me/ns#" itemscope itemtype="http://schema.org/WebPage">
-  <meta charset="utf-8"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-
-  <title>pleiades.stoa.org</title>
-
-  <!-- Dublin Core metadata -->
-  <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
-  <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" />
-  <meta name="DC.title" property="dc:title" itemprop="name" lang="en" content="Pleiades: A community-built gazetteer and graph of ancient places"/>
-  <meta name="DC.description" property="dc:description" itemprop="description" lang="en" content="Pleiades gives scholars, students, and enthusiasts worldwide the ability to use, create, and share historical geographic information about the ancient world in digital form."/>
-  <meta name="DC.subject" property="dc:subject" itemprop="about" lang="en" content="Geography, Ancient"/>
-  <meta name="DC.type" property="dc:type" lang="en" content="Collection"/>
-  <meta name="DC.type" property="dc:type" lang="en" content="Dataset"/>
-  <meta name="DC.type" property="dc:type" lang="en" content="Service"/>
-  <meta name="DC.type" property="dc:type" lang="en" content="Interactive Resource"/>
-  <meta name="DC.date" property="dc:date" content="2006-"/>
-  <meta name="DC.publisher" property="dc:publisher" itemprop="publisher" lang="en" content="Institute for the Study of the Ancient World, New York University"/>
-  <meta name="DC.publisher" property="dc:publisher" itemprop="publisher" lang="en" content="Ancient World Mapping Center, University of North Carolina at Chapel Hill"/>
-  <meta name="DC.language" property="dc:language" itemprop="inLanguage" content="en"/>
-  <meta name="DC.rights" property="dc:rights" itemprop="copyrightHolder" lang="en" content="Copyright New York University, University of North Carolina at Chapel Hill, and the contributors."/>
-  <meta name="DCTERMS.license" property="dcterms:license" content="http://creativecommons.org/licenses/by/3.0/us/"/>
-  <meta name="DCTERMS.bibliographicCitation" property="dcterms:bibliographicCitation" lang="en" content="R. Bagnall et al. (eds.). Pleiades. 2006-. http://pleiades.stoa.org."/>
-  <meta name="DC.identifier" property="dc:identifier" itemprop="url" content="http://pleiades.stoa.org"/>
-  <meta name="DC.identifier" property="dc:identifier" content="http://www.worldcat.org/oclc/768967352"/>
-  <!-- editors: -->
-  <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Roger Bagnall"/>
-  <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Richard J.A. Talbert"/>
-  <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Sarah Bond"/>
-  <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Jeffrey Becker"/>
-  <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Tom Elliott"/>
-  <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Sean Gillies"/>
-  <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Ryan Horne"/>
-  <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Michael McCormick"/>
-  <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Adam Rabinowitz"/>
-  <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Brian Turner"/>
-  <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Ross Twele"/>
-
-  <!-- reviewers: -->
-  <meta name="DC.contributor" property="dc:contributor" itemprop="contributor" lang="en" content="Stefano Costa"/>
-  <meta name="DC.contributor" property="dc:contributor" itemprop="contributor" lang="en" content="Arthur De Graauw"/>
-  <meta name="DC.contributor" property="dc:contributor" itemprop="contributor" lang="en" content="Stuart Dunn"/>
-  <meta name="DC.contributor" property="dc:contributor" itemprop="contributor" lang="en" content="Noah Kaye"/>
-  <meta name="DC.contributor" property="dc:contributor" itemprop="contributor" lang="en" content="Perry Scalfano"/>
-  <meta name="DC.contributor" property="dc:contributor" itemprop="contributor" lang="en" content="Scott Vanderbilt"/>
-  <!-- end Dublin Core metadata -->
-
-  <!-- open graph metadata -->
-  <meta property="og:title" content="Pleiades: A community-built gazetteer and graph of ancient places" />
-  <meta property="og:type" content="og:website" />
-  <meta property="og:url" content="http://pleiades.stoa.org" />
-  <meta property="og:image" content="http://pleiades.stoa.org/images/pleiades-social-logo/image" />
-  <meta property="og:description" content="Pleiades gives scholars, students, and enthusiasts worldwide the ability to use, create, and share historical geographic information about the ancient world in digital form."/>
-  <!-- end open graph metadata -->
-
-  <meta name="description" content="Pleiades gives scholars, students, and enthusiasts worldwide the ability to use, create, and share historical geographic information about the ancient world in digital form.">
-
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-
-  <!-- CSS concatenated and minified via ant build script-->
-  <link rel="stylesheet" href="css/style.css"/>
-  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.4/leaflet.css" />
-  <link rel="license" href="http://creativecommons.org/licenses/by/3.0/us/"/>
-  <!-- end CSS-->
-
-  <script src="js/libs/modernizr-2.0.6.min.js"></script>
-</head>
-
-<body>
-
-  <div id="container">
-
-    <div id="top">
-      <ul id="site-actions">
-        <li id="siteaction-accessibility">
-          <a title="Accessibility" accesskey="0" href="http://pleiades.stoa.org/accessibility-info">Accessibility</a>
-        </li>
-        <li id="siteaction-contact">
-          <a title="Feedback" accesskey="9" href="http://pleiades.stoa.org/feedback">Feedback</a>
-        </li>
-        <li id="siteaction-help">
-          <a title="Help" accesskey="" href="http://pleiades.stoa.org/help">Help</a>
-        </li>
-        <li id="siteaction-join">
-          <a title="Join/Login" accesskey="" href="http://pleiades.stoa.org/login_form">Join/Login</a>
-        </li>
-        <li id="siteaction-status">
-          <a title="Site Status" accesskey="" href="http://pleiades-site-status.tumblr.com/">Site Status</a>
-        </li>
-      </ul>
-    </div>
-
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en-US">
+<!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     
-    <header id="header">
-     <img class="logo" src="img/pleiades-logo-neg-tag.png" alt="Pleiades Logo">
-    </header>
+    <title>pleiades.stoa.org</title>
+    <meta name="description" content="Pleiades gives scholars, students, and enthusiasts worldwide the ability to use, create, and share historical geographic information about the ancient world in digital form." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-
-    <div id="mapchicklets" class="chicklets">
-      <a href="https://twitter.com/PleiadesProject" title="Twitter: follow @PleiadesProject"><img src="img/twitter.png" alt="Twitter icon"/></a>
-      <a href="https://www.facebook.com/PleiadesProject" title="Facebook: follow PleiadesProject"><img src="img/facebook.png" alt="Facebook icon"/></a>
-      <a href="http://pleiades.stoa.org/news/blog/collector/RSS" title="News: subscribe to an RSS feed of the latest news from the Pleiades Project Blog"><img src="img/rss.png" alt="RSS feed icon"/></a>
-      <a href="http://pleiades.stoa.org/news/changes.atom" title="Changes: subscribe to an GeoRSS feed of the most recent changes and additions to Pleiades content"><img id="georssicon" src="img/georss.png" alt="GeoRSS Icon"/></a>
-      <a href="http://www.flickr.com/groups/pleiades-places/pool" title="Flickr: view open-licensed photos of Pleiades places in the 'Pleiades Places Group'"><img src="img/flickr.png" alt="Flickr.com icon"/></a>
-    </div>
-
-
-    <div id="main" role="main">
-      <div id="middle">
-        <div class="middle align-center">
-          <p class="app-welcome">
-            A community-built gazetteer and graph of ancient places
-          </p>
-        </div>
-      </div> <!-- end div@id=middle -->
-
-      <div id="bottom">
-        <div id="map" title="A slideshow of random places from Pleiades. Press P to pause/play, J to go back one step, or K to advance. Press Esc to terminate the slideshow. Reload the page to begin again."></div>
-
-        <div id="aboutmap">Dynamic map application and page design by <a href="http://sgillies.net/">Sean Gillies</a> for <a href="http://isaw.nyu.edu" title="Institute for the Study of the Ancient World (NYU)">ISAW</a>. Ancient terrain basemap by <a href="https://unc.academia.edu/RyanHorne">Ryan Horne</a> for <a href="http://awmc.unc.edu" title="Ancient World Mapping Center (UNC-CH)">AWMC</a>.</div>
-
-        <div id="links" class="bottom align-center">
-          <p>
-            <a href="http://pleiades.stoa.org/home">about</a> &#183;
-            <a href="http://pleiades.stoa.org/places">browse</a> &#183;
-            <a href="http://pleiades.stoa.org/downloads">download</a> &#183;
-            <a href="http://pleiades.stoa.org/news/blog">blog</a> &#183;
-            <a href="http://pleiades.stoa.org/credits">credits</a>
-          </p>
-        </div> <!-- end div@id=links -->
-
-        <div id="search-form" class="bottom align-center">
-          <br/>
-          <form action="http://pleiades.stoa.org/search">
-            <fieldset>
-              <legend id="placesSearchLegend">search for places</legend>
-              <input class="text" type="text" id="q" name="SearchableText" cols="40" placeholder="Internum Mare" value="" required="1">
-              <input type="hidden" name="portal_type" value="Place">
-              <input class="submit" type="submit" name="submit" value="Search">
-            </fieldset>
-          </form>
-          <br/>
-        </div> <!-- end div@id=search-form -->
-
-        <div id="more">
-          <div class="left">
-            <p>Pleiades is a historical <abbr title="a geographical dictionary or encyclopedia that provides information about places and placenames">gazetteer</abbr> and more. It gives scholars, students and enthusiasts worldwide the ability to use, create, share, and map historical geographic information about the ancient world. It associates names and locations in time and provides structured information about the quality and provenance of these entities.</p>
-            <p>There is also a <abbr title="Computer scientists use the term 'graph' to denote an information model in which individual information objects are linked together in pairwise fashion and those linkages can be exploited to find related information, infer dependencies and implications, and even create new knowledge programmatically">graph</abbr> in Pleiades: names and locations are collected into conceptual bundles (places) and these collections are associated with other geographically connected places.</p>
-            <p>Pleiades identifies places within the emerging web of ancient world linked data. It is an authoritative hub in an expanding constellation of online publications that treat the histories, languages, texts, and artifacts of antiquity.</p>
-            <p><a href="http://pleiades.stoa.org/places/">More about the data ...</a></p>
-          </div>
-          <div class="right">
-            <p>Pleiades is one hundred percent open source, one hundred percent openly licensed and one hundred percent editable.</p>
-            <p>Our open source software gets used and improved by a diverse crowd of programmers in the humanities and beyond. Our openly licensed resources have no costs attached, no surprises or encumberances.</p>
-            <p>Pleiades is a continuously published scholarly reference work for the 21st century. We embrace the new paradigm of citizen humanities, encouraging contributions from any knowledgeable person and doing so in a context of pervasive peer review.  Pleiades welcomes your contribution, no matter how small, and we have a number of useful tasks suitable for volunteers of every interest.</p>
-            <p><a href="http://pleiades.stoa.org/welcome">More about contributing ...</a></p>
-          </div>
-          <div class="clearfix"></div>
-        </div> <!-- end div@id=more -->
-      </div> <!-- end div@id=bottom -->
-
-      <div id="sponsors" class="bottom align-center" style="margin-bottom: 40px">
-        <h2>Pleiades is brought to you by:</h2>
-        <div class="align-center" style="width: 600px; margin:auto; padding-bottom: 40px">
-          <a href="http://www.neh.gov"><img src="img/NEH-Logo-Horizontal_RGB.png" alt="Logo of the National Endowment for the Humanities"></a>
-          <p>Pleiades received significant support from January 2006 through April 2014 from the National Endowment for the Humanities.</p>
-          <p class="disclaimer">Grant numbers: <a href="https://securegrants.neh.gov/publicquery/main.aspx?f=1&amp;gn=PA-51873-06">PA-51873-06</a>, <a href="https://securegrants.neh.gov/publicquery/main.aspx?f=1&amp;gn=PX-50003-08">PX-50003-08</a>, and <a href="https://securegrants.neh.gov/publicquery/main.aspx?f=1&amp;gn=PW-50557-10">PW-50557-10</a>. Any views, findings, conclusions, or recommendations expressed in this publication do not necessarily reflect those of the National Endowment for the Humanities.</p>
-        </div>
-        <div class="clearfix"></div>
-        <div class="bottom left" style="max-width: 25%; margin:auto">
-          <a href="http://isaw.nyu.edu"><img src="img/isaw-named-stacked-alt3.jpg" alt="Logo of the Institute for the Study of the Ancient World at New York University"></a>
-          <div class="disclaimer">Web hosting and additional support is provided by the Institute for the Study of the Ancient World.</div>
-        </div>
-        <div class="bottom right" style="max-width: 25%; margin:auto">
-          <a href="http://www.unc.edu/awmc"><img src="img/awmc-named-stacked-alt.jpg" alt="Logo of the Ancient World Mapping Center at the University of North Carolina at Chapel Hill"/></a>
-          <div class="disclaimer">Additional support is provided by the Ancient World Mapping Center.</div>
-        </div>
-        <div class="bottom align-center" style="max-width: 25%; margin:auto">
-          <a href="http://www.stoa.org"><img src="img/stoa.jpg" alt="Logo of the Stoa Consortium"/></a>
-          <div class="disclaimer">Development hosting and other project incubation support was provided by Ross Scaife and the Stoa Consortium.</div>
-        </div>
-      </div> <!-- end div@id=sponsors -->
-    </div> <!-- end div@id=main -->
-
-    <footer id="footer">
-      <div id="footerchicklets" class="chicklets">
-        <a class="oomph" href="https://twitter.com/search/realtime?q=%23adfines" title="Twitter: read the latest tweets about Pleiades">#adfines</a>
-      </div>
-      <div class="rights">Some rights reserved (<abbr title="Creative Commons Attribution License">cc-by</abbr>) Ancient World Mapping Center, Institute for the Study of the Ancient World and the Contributors</div>
-    </footer>
-
-  </div> <!--! end of #container -->
-
-  <!-- Map info window content template -->
-  <div id="infoWindowContent" style="display:none">
-    <div id="iwcContainer" class="align-center">
-      <p id="iwcTitle">
-        <span class="title">
-          <a id="detailsLink" href="#" title="Click for details">Title</a>
-        </span>
-      </p>
-      <p id="iwcByline" class="byline">Last Modified 2011-01-01 by sgillies</p>
-      <p id="iwcDescription">Description</p>
-    </div>
-  </div>
-
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
-  <script>
-      function placecount() {
-      /* Get count of places from API status */
-      $.getJSON(
-        "http://pleiades.stoa.org/api/status", 
-        function(data) {
-          $("#placesSearchLegend", document).text(
-            "Search the " +
-            data['num_places'].toString().replace(
-              /\B(?=(?:\d{3})+(?!\d))/g, ",") +
-            " Places" );
-          $("#placesSearchLegend", document).css("visibility", "visible");
-        });
-    }
-  </script>
-  <script src="http://cdn.leafletjs.com/leaflet-0.4.4/leaflet.js"></script>
-  <script>
-    var latlng0 = new L.LatLng(38.0, 42.0);
+    <!-- Dublin Core metadata -->
+    <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
+    <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" />
+    <meta name="DC.title" property="dc:title" itemprop="name" lang="en" content="Pleiades: A community-built gazetteer and graph of ancient places"/>
+    <meta name="DC.description" property="dc:description" itemprop="description" lang="en" content="Pleiades gives scholars, students, and enthusiasts worldwide the ability to use, create, and share historical geographic information about the ancient world in digital form."/>
+    <meta name="DC.subject" property="dc:subject" itemprop="about" lang="en" content="Geography, Ancient"/>
+    <meta name="DC.type" property="dc:type" lang="en" content="Collection"/>
+    <meta name="DC.type" property="dc:type" lang="en" content="Dataset"/>
+    <meta name="DC.type" property="dc:type" lang="en" content="Service"/>
+    <meta name="DC.type" property="dc:type" lang="en" content="Interactive Resource"/>
+    <meta name="DC.date" property="dc:date" content="2006-"/>
+    <meta name="DC.publisher" property="dc:publisher" itemprop="publisher" lang="en" content="Institute for the Study of the Ancient World, New York University"/>
+    <meta name="DC.publisher" property="dc:publisher" itemprop="publisher" lang="en" content="Ancient World Mapping Center, University of North Carolina at Chapel Hill"/>
+    <meta name="DC.language" property="dc:language" itemprop="inLanguage" content="en"/>
+    <meta name="DC.rights" property="dc:rights" itemprop="copyrightHolder" lang="en" content="Copyright New York University, University of North Carolina at Chapel Hill, and the contributors."/>
+    <meta name="DCTERMS.license" property="dcterms:license" content="http://creativecommons.org/licenses/by/3.0/us/"/>
+    <meta name="DCTERMS.bibliographicCitation" property="dcterms:bibliographicCitation" lang="en" content="R. Bagnall et al. (eds.). Pleiades. 2006-. http://pleiades.stoa.org."/>
+    <meta name="DC.identifier" property="dc:identifier" itemprop="url" content="http://pleiades.stoa.org"/>
+    <meta name="DC.identifier" property="dc:identifier" content="http://www.worldcat.org/oclc/768967352"/>
+    <!-- editors: -->
+    <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Roger Bagnall"/>
+    <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Richard J.A. Talbert"/>
+    <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Sarah Bond"/>
+    <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Jeffrey Becker"/>
+    <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Tom Elliott"/>
+    <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Sean Gillies"/>
+    <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Ryan Horne"/>
+    <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Michael McCormick"/>
+    <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Adam Rabinowitz"/>
+    <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Elizabeth Robinson"/>
+    <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Brian Turner"/>
     
-    var tiles = L.tileLayer(
-    //    'http://static.ahlfeldt.se/srtm/imperium/{z}/{x}/{y}.png', {
-    //    'http://api.tiles.mapbox.com/v3/isawnyu.map-p75u7mnj/{z}/{x}/{y}.png', {
-        'http://api.tiles.mapbox.com/v3/isawnyu.map-knmctlkh/{z}/{x}/{y}.png', {
-
-            maxZoom: 7,
-            reuseTiles: true,
-            updateWhenIdle: false,
-            noWrap: true
-            });
-
-    var ppoints = L.tileLayer(
-        'http://api.tiles.mapbox.com/v3/isawnyu.75cul3di/{z}/{x}/{y}.png', {
-            maxZoom: 7,
-            reuseTiles: true,
-            updateWhenIdle: false,
-            opacity: 0.5,
-            noWrap: true
-            });
-            
-    var placeIcon = new L.Icon({
-        iconUrl: "http://atlantides.org/images/justice-blue.png",
-        iconSize:     [32, 37],
-        iconAnchor:   [16, 37]
-      });
-    var marker = new L.Marker([-90, 45], {icon: placeIcon});
-
-    var msg = null;
-    var infoWindow = new L.Popup({
-        offset: new L.Point(0, -30),
-        closeButton: false,
-        maxWidth: 500 });
-
-    var current = null;
-    var next = [];
-    var prev = [];
-
-    var timer = null;
-    var count = 0;
-    var limit = 100;
-    var interval = 8000;
+    <!-- reviewers: -->
+    <meta name="DC.contributor" property="dc:contributor" itemprop="contributor" lang="en" content="Stefano Costa"/>
+    <meta name="DC.contributor" property="dc:contributor" itemprop="contributor" lang="en" content="Arthur De Graauw"/>
+    <meta name="DC.contributor" property="dc:contributor" itemprop="contributor" lang="en" content="Stuart Dunn"/>
+    <meta name="DC.contributor" property="dc:contributor" itemprop="contributor" lang="en" content="Noah Kaye"/>
+    <meta name="DC.contributor" property="dc:contributor" itemprop="contributor" lang="en" content="Scott Vanderbilt"/>
+    <!-- end Dublin Core metadata -->
     
-    /* Begin in recent-seeking state */
-    var state = "recent-seeking";
-    var url = "http://pleiades.stoa.org/api/ssdRecentPlaceJson";
-
-    var map = null;
-
-    function preset() {
-      var d = { 
-        "bbox": null
-      }
-      map = L.map('map', {
-          center: latlng0,
-          zoom: 6,
-          closePopupOnClick: false,
-          dragging: false,
-          touchZoom: false,
-          scrollWheelZoom: false,
-          doubleClickZoom: false,
-          boxZoom: false,
-          keyboard: false,
-          zoomControl: false,
-          attributionControl: false });
-      tiles.addTo(map);
-      ppoints.addTo(map);
-      map.setZoom(4, {"animate":true});
-      placecount();
-      timer = setTimeout(postset, 5000);
-    }
+    <!-- open graph metadata -->
+    <meta property="og:title" content="Pleiades: A community-built gazetteer and graph of ancient places" />
+    <meta property="og:type" content="og:website" />
+    <meta property="og:url" content="http://pleiades.stoa.org" />
+    <meta property="og:image" content="http://pleiades.stoa.org/images/pleiades-social-logo/image" />
+    <meta property="og:description" content="Pleiades gives scholars, students, and enthusiasts worldwide the ability to use, create, and share historical geographic information about the ancient world in digital form."/>
+    <!-- end open graph metadata -->
     
-    function postset() {
-      time = setTimeout(play, 0);
-    }
-
-    function play() {
-      
-      if (count > limit) {
-        if (state == "recent-seeking") { // switch state
-          state = "any-seeking";
-          count = 0;
-          url = "http://pleiades.stoa.org/api/ssdAnyPlaceJson";
-        }
-        else { // quit
-          current = null;
-          return null;
-        }
-      }
-      if (current != null) {
-        prev.push(current);
-      }
-      if (next.length == 0) {
-        $.getJSON(url, function(data) {
-          limit = data['limit'];
-          current = data['results'][0]['id'];
-          if ($.inArray(current, prev) < 0 && 
-              $.inArray(current, next) < 0) {
-            show(data['results'][0]);
-          }
-          else {
-            current = data['results'][1]['id'];
-            show(data['results'][1]);
-          }
-        });
-      }
-      else {
-        current = next.shift();
-        var nextUrl = "http://pleiades.stoa.org/places/" + current + "/json";
-        $.getJSON(nextUrl, function(data) {
-          current = data["id"];
-          show(data);
-        });
-      }
-      count = count + 1;
-      timer = setTimeout(play, interval);
-    }
-
-    function forward() {
-      if (current != null) { prev.push(current); }
-      if (next.length == 0) {
-        $.ajax({
-          url: url,
-          dataType: 'json',
-          headers: {'If-None-Match': '*'},
-          success: function(data) {
-            limit = data['limit'];
-            current = data['results'][0]['id'];
-            if ($.inArray(current, prev) < 0 && 
-                $.inArray(current, next) < 0) {
-              show(data['results'][0]);
-            }
-            else {
-              current = data['results'][1]['id'];
-              show(data['results'][1]);
-            }
-          }
-        });
-      }
-      else {
-        current = next.shift();
-        var nextUrl = "http://pleiades.stoa.org/places/" + current + "/json";
-        $.getJSON(nextUrl, function(data) {
-          current = data["id"];
-          show(data);
-        });
-      }
-    }
-
-    function back() {
-      if (current != null) { next.unshift(current); }
-      if (prev.length > 0) {
-        current = prev.pop();
-        var backUrl = "http://pleiades.stoa.org/places/" + current + "/json";
-      }
-      else {
-        return null;
-      }
-      $.getJSON(backUrl, function(data) {
-        current = data["id"];
-        show(data);
-      });
-    }
-
-    function show(data) {
-
-      var bounds = data["bbox"];
-      if (bounds == null) {
-        latlng = latlng0;
-      }
-      else {
-        latlng = new L.LatLng(
-          (bounds[1]+bounds[3])/2.0, (bounds[0]+bounds[2])/2.0);
-      }
-      
-
-      map.closePopup();
-      var msg = $("#infoWindowContent").clone(true, true);
-      var link = "http://pleiades.stoa.org/places/" + data["id"];
-      $("#iwcTitle #detailsLink", msg).attr("href", link);
-      $("#iwcTitle #detailsLink", msg).text(data["title"]);
-      $("#iwcDescription", msg).text(data["description"]);
-
-      if (data["recent_changes"] != null) {
-        var items = $.map(data["recent_changes"], function(value){
-          var q = value["modified"];
-          var modified = new Date(
-            Date.UTC(
-              parseInt(q.substring(0,4)),
-              parseInt(q.substring(5,7))-1,
-              parseInt(q.substring(8,10)),
-              parseInt(q.substring(11,13)),
-              parseInt(q.substring(14,16))))
-          return modified.toDateString() + " by " + value["principal"];
-          });
-        $("#iwcByline", msg).text("Last modified: " + items.join(", "));
-      }
-      else {
-        $("#iwcByline", msg).hide();
-      }
-
-      $(msg).show();
-      $("iwcNav", msg).hide();
-      
-      infoWindow.setLatLng(latlng);
-      infoWindow.setContent($(msg).html());
-      
-      marker.setLatLng(latlng);
-      map.openPopup(infoWindow);
-
-      if (count == 1) {
-        po = {"animate":true, "duration":3.0}
-      }
-      else {
-        po = {"animate":true, "duration":1.0}
-      }
-      zo = {"animate":true}
-      if (bounds == null) {
-        map.removeLayer(marker)
-        map.panTo(latlng, po);
-        map.setZoom(4, zo);
-      }
-      else {
-        marker.addTo(map)
-        map.panTo([latlng.lat+1.2, latlng.lng], po);
-        map.setZoom(6, zo);
-      }
-    }
-
-    $(document).keyup(function(e) {
-      if (e.keyCode == 27) { count = limit + 1; } // esc ends the slideshow
-      /* Toggle pause/play with p key */
-      else if (e.keyCode == 80) {
-        if (timer == null) {
-          timer=setTimeout(play, 500);
-        }
-        else {
-          clearTimeout(timer);
-          timer = null;
-        }
-      }
-      else if (e.keyCode == 74) { back(); } // j goes back
-      else if (e.keyCode == 75) { forward(); } // j goes forward
-    });
-
-    $(document).ready(function(){preset();});
-
-  </script>
-
-  <!-- scripts concatenated and minified via ant build script-->
-  <!--script defer src="js/plugins.js"></script-->
-  <!--script defer src="js/script.js"></script-->
-  <!-- end scripts-->
-
-
-  <script> // Change UA-XXXXX-X to be your site's ID
-    window._gaq = [['_setAccount','UA-3702316-7'],['_trackPageview'],['_trackPageLoadTime']];
-    Modernizr.load({
-      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
-    });
-  </script>
-
-
-  <!--[if lt IE 7 ]>
-    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
-  <![endif]-->
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  </head>
   
-</body>
+  <body>
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container-fluid ">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+            data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Pleiades</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-right">
+          <ul class="nav navbar-nav">
+            <li><a href="about">about</a></li>
+            <li><a href="blog">blog</a></li>
+            <li><a href="browse">browse</a></li>
+            <li><a href="credits">credits</a></li>
+            <li><a href="download">download</a></li>
+            <li><a href="help">help</a></li>
+            <li><a href="join">join/login</a></li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+    
+    <!-- dynamic map -->
+    <div class="container-fluid">
+      <div class="row">
+        <div id="map" class="col-md-12"
+          title="A slideshow of random places from Pleiades. Press P to pause/play, J to go back one step, or K to advance. Press Esc to terminate the slideshow. Reload the page to begin again."
+        ></div>
+      </div>
+    </div>
+    
+    <!-- search results from pleiades static search -->
+    <div class="ui-widget col-md-4 col-md-offset-4">
+      <form>
+        <fieldset>
+          <legend id="placesSearchLegend">search for places</legend>
+          <input id="search" class="form-control" placeholder="Enter a search term, Pleiades ID, or URL" />
+        </fieldset>
+      </form>
+    </div>
+    <div id="results" class="container-fluid"></div>
+    
+    <!-- other page content -->
+    <div class="container-fluid">
+      
+      <!-- pleiades description -->
+      <div class="row pleiades-description">
+        <div class="col-md-offset-2 col-md-4">
+          <p><i>Pleiades</i> is a community-built gazetteer and graph of ancient places. It
+            publishes authoritative information about ancient places and spaces, providing unique
+            services for finding, displaying, and reusing that information under open license. It
+            publishes not just for individual human users, but also for search engines and for the
+            widening array of computational research and visualization tools that support
+            humanities teaching and research. <br /><a href="browse">Learn more</a>.</p>
+        </div>
+        <div class="col-md-4">
+          <p><i>Pleiades</i> is a continuously published scholarly reference work for the 21st
+            century. We embrace the new paradigm of citizen humanities, encouraging contributions
+            from any knowledgeable person and doing so in a context of pervasive peer review.
+              <i>Pleiades</i> welcomes your contribution, no matter how small, and we have a number
+            of useful tasks suitable for volunteers of every interest. <br /><a href="join">Join and
+              help</a>.</p></div>
+      </div>
+      
+      <!-- pleiades sponsors -->
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="text-center">Pleiades is brought to you by:</h2>
+        </div>
+      </div>
+      <div class="row pleiades-support">
+        <div class="col-sm-3 col-sm-offset-3 col-md-4 col-md-offset-4 text-center">
+          <div class="thumbnail">
+            <a href="http://www.neh.gov"><img id="nehlogo" src="img/neh_50_logo_2color.png"
+                alt="Logo of the National Endowment for the Humanities" /></a></div>
+          <div class="caption">
+            <p>Pleiades has received significant, periodic support from the <a
+                href="http://www.neh.gov">National Endowment for the Humanities</a> since 2006.</p>
+            <p class="disclaimer">Grant numbers: <a
+                href="https://securegrants.neh.gov/publicquery/main.aspx?f=1&amp;gn=HK-230973-15"
+                >HK-230973-15</a>, <a
+                href="https://securegrants.neh.gov/publicquery/main.aspx?f=1&amp;gn=PA-51873-06"
+                >PA-51873-06</a>, <a
+                href="https://securegrants.neh.gov/publicquery/main.aspx?f=1&amp;gn=PX-50003-08"
+                >PX-50003-08</a>, and <a
+                href="https://securegrants.neh.gov/publicquery/main.aspx?f=1&amp;gn=PW-50557-10"
+                >PW-50557-10</a>. Any views, findings, conclusions, or recommendations expressed in
+              this publication do not necessarily reflect those of the National Endowment for the
+              Humanities.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row pleiades-support">
+        <div class="col-md-offset-2 col-md-8">
+          <div class="col-sm-2 col-md-4 text-center">
+            <div class="thumbnail">
+              <a href="http://awmc.unc.edu"><img src="img/logo-awmc.jpg"
+                  alt="Logo of the Ancient World Mapping Center at the University of North Carolina at Chapel Hill"
+                 /></a></div>
+            <div class="caption">
+              <p>Additional support has been provided since 2000 by the <a
+                  href="http://awmc.unc.edu">Ancient World Mapping Center</a> at the University of
+                North Carolina at Chapel Hill.</p>
+            </div>
+          </div>
+          <div class="col-sm-2 col-md-4 text-center">
+            <div class="thumbnail"><a href="http://www.stoa.org"><img src="img/stoa.jpg"
+                  alt="Logo of the Stoa Consortium" /></a></div>
+            <div class="caption">
+              <p>Development hosting and other project incubation support was provided between 2000
+                and 2008 by <a href="https://en.wikipedia.org/wiki/Ross_Scaife">Ross Scaife</a> and
+                the <a href="http://www.stoa.org">Stoa Consortium</a>.</p>
+            </div>
+          </div>
+          <div class="col-sm-2 col-md-4 text-center">
+            <div class="thumbnail">
+              <a href="http://isaw.nyu.edu"><img src="img/logo-isaw.svg"
+                  alt="Logo of the Institute for the Study of the Ancient World at New York University"
+                 /></a></div>
+            <div class="caption">
+              <p>Web hosting and additional support has been provided since 2008 by the <a
+                  href="http://isaw.nyu.edu">Institute for the Study of the Ancient World</a> at New
+                York University.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- footer -->
+      <footer>
+        <div class="pleiades-rights text-center">Some rights reserved (cc-by) Ancient World Mapping
+          Center, Institute for the Study of the Ancient World, and the Contributors.</div>
+      </footer>
+    </div>
+    <!-- /container -->
+    
+    <!-- Map info window content template -->
+    <div id="infoWindowContent" style="display:none">
+      <div id="iwcContainer" class="align-center">
+        <p id="iwcTitle">
+          <span class="title">
+            <a id="detailsLink" href="#" title="Click for details">Title</a>
+          </span>
+        </p>
+        <p id="iwcByline" class="byline">Last Modified 2011-01-01 by sgillies</p>
+        <p id="iwcDescription">Description</p>
+      </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. 
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+    <script src="js/placecount.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/vendor/pleiades-static-search.js"></script>
+    <script>
+        $(document).ready(function(){preset();});
+    </script>
+  </body>
 </html>
