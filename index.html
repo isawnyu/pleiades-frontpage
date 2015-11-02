@@ -101,28 +101,29 @@
       </div>
     </nav>
     
-    <!-- dynamic map -->
     <div class="container-fluid">
+
+      <!-- dynamic map -->
       <div class="row">
         <div id="map" class="col-md-12"
           title="A slideshow of random places from Pleiades. Press P to pause/play, J to go back one step, or K to advance. Press Esc to terminate the slideshow. Reload the page to begin again."
         ></div>
       </div>
-    </div>
     
-    <!-- search results from pleiades static search -->
-    <div class="ui-widget col-md-4 col-md-offset-4">
-      <form>
-        <fieldset>
-          <legend id="placesSearchLegend">search for places</legend>
-          <input id="search" class="form-control" placeholder="Enter a search term, Pleiades ID, or URL" />
-        </fieldset>
-      </form>
-    </div>
-    <div id="results" class="container-fluid"></div>
-    
-    <!-- other page content -->
-    <div class="container-fluid">
+      <!-- pleiades static search -->
+      <div class="row">
+        <div class="ui-widget col-md-4 col-md-offset-4">
+          <form>
+            <fieldset>
+              <legend id="placesSearchLegend">search for places</legend>
+              <input id="search" class="form-control" placeholder="Enter a search term, Pleiades ID, or URL" />
+            </fieldset>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div id="results" class="container-fluid"></div>
+      </div>
       
       <!-- pleiades description -->
       <div class="row pleiades-description">
@@ -140,7 +141,8 @@
             from any knowledgeable person and doing so in a context of pervasive peer review.
               <i>Pleiades</i> welcomes your contribution, no matter how small, and we have a number
             of useful tasks suitable for volunteers of every interest. <br /><a href="join">Join and
-              help</a>.</p></div>
+              help</a>.</p>
+        </div>
       </div>
       
       <!-- pleiades sponsors -->
@@ -212,8 +214,7 @@
         <div class="pleiades-rights text-center">Some rights reserved (cc-by) Ancient World Mapping
           Center, Institute for the Study of the Ancient World, and the Contributors.</div>
       </footer>
-    </div>
-    <!-- /container -->
+    </div><!-- /container -->
     
     <!-- Map info window content template -->
     <div id="infoWindowContent" style="display:none">
