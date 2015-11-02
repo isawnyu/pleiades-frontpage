@@ -75,7 +75,7 @@
         col.attr('id', uid);
         col.append($('<p>').text("" + (result[0].join(', ')) + " - ").append(window.pleiades_link(result[1])));
         col.append(geojson_embed(result[1]));
-        $.ajax("/pleiades-geojson/geojson/" + result[1] + ".geojson", {
+        $.ajax("https://raw.githubusercontent.com/ryanfb/pleiades-geojson/gh-pages/geojson/" + result[1] + ".geojson", {
           type: 'GET',
           dataType: 'json',
           crossDomain: true,
