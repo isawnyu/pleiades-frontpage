@@ -84,7 +84,7 @@ function mapPlace(pleiadesID) {
                         icon: placeIcon
                     });                    
                     var popHtml = `<span class="title"><a href="http://pleiades.stoa.org/places/${pleiadesID}">${placeTitle}</a></span><br /><span class="description">${placeDescription}</span>`;
-                    markerCurrent.bindPopup(popHtml, {offset: new L.Point(0, -27)});
+                    markerCurrent.bindPopup(popHtml, {offset: new L.Point(0, -27), closeButton: false});
                     map.setView(latLng, zoomMax, {
                         pan: {
                             animate: true,
