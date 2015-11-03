@@ -3,23 +3,16 @@
     var tiles = L.tileLayer(
     //    'http://static.ahlfeldt.se/srtm/imperium/{z}/{x}/{y}.png', {
     //    'http://api.tiles.mapbox.com/v3/isawnyu.map-p75u7mnj/{z}/{x}/{y}.png', {
-        'http://api.tiles.mapbox.com/v3/isawnyu.map-knmctlkh/{z}/{x}/{y}.png', {
+        'http://api.tiles.mapbox.com/v4/isawnyu.map-knmctlkh/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiaXNhd255dSIsImEiOiJBWEh1dUZZIn0.SiiexWxHHESIegSmW8wedQ', {
 
             maxZoom: 7,
             reuseTiles: true,
             updateWhenIdle: false,
-            noWrap: true
+            noWrap: true,
+            detectRetina: true
             });
 
-    var ppoints = L.tileLayer(
-        'http://api.tiles.mapbox.com/v3/isawnyu.75cul3di/{z}/{x}/{y}.png', {
-            maxZoom: 7,
-            reuseTiles: true,
-            updateWhenIdle: false,
-            opacity: 0.5,
-            noWrap: true
-            });
-            
+
     var placeIcon = new L.Icon({
         iconUrl: "http://atlantides.org/images/justice-blue.png",
         iconSize:     [32, 37],
@@ -65,7 +58,6 @@
           zoomControl: false,
           attributionControl: false });
       tiles.addTo(map);
-      ppoints.addTo(map);
       map.setZoom(4, {"animate":true});
       placecount();
       timer = setTimeout(postset, 5000);
