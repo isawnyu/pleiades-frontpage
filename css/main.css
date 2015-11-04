@@ -36,6 +36,7 @@ nav.navbar-default .navbar-nav > li > a:hover {text-decoration: underline; color
 div.search-map {height: 200px; border: 1px solid #BBBBBB;}
 
 .search-map .leaflet-tile-pane {opacity:0.5;}
+.search-map:hover .leaflet-tile-pane {opacity:1;}
 
 
 
