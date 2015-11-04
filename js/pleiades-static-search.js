@@ -16,6 +16,39 @@
     iframe.attr('src', "https://render.githubusercontent.com/view/geojson?url=https://raw.githubusercontent.com/ryanfb/pleiades-geojson/gh-pages/geojson/" + pleiades_id + ".geojson");
     return iframe;
   };
+  function onMarkerClick(e) {
+      window.open(this.options.win_url);
+  }
+  pleiades_map = function(data) {
+    var bounds = data["bbox"];
+    if (bounds != null) {
+        var reprPoint = data["reprPoint"];
+        var mapOptionsInit = {
+            attributionControl: {compact: true},
+            boxZoom: true,
+            center: [reprPoint[1], reprPoint[0]],
+            doubleClickZoom: false,
+            dragging: true,
+            keyboard: false,
+            maxZoom: 7,
+            scrollWheelZoom: false,
+            tap: false,
+            touchZoom: false,
+            zoom: 5,
+            zoomControl: true
+        };      
+        map_this = new L.mapbox.map('map-' + data['id'], 'isawnyu.map-knmctlkh', mapOptionsInit);
+        map_this.attributionControl.addAttribution("Ancient topography by AWMC, 2014 (cc-by-nc).");  
+        latLng = new L.LatLng(reprPoint[1], reprPoint[0]);
+        marker_this = new L.Marker(latLng, {icon: placeIcon, win_url: "http://pleiades.stoa.org/places/" + data['id']});    
+        marker_this.addTo(map_this);
+        marker_this.on('click', onMarkerClick);
+        map_this.setView([reprPoint[1], reprPoint[0]], 7);
+        /* L.geoJson(data, { style: L.mapbox.simplestyle.style }).addTo(map_this); */
+        return map_this        
+    }
+
+    }
 
   window.pleiades_link = function(pleiades_id) {
     var link;
@@ -43,26 +76,35 @@
           $("#" + div_id).before($('<span>', {
             style: 'color:gray;'
           }).text(modern_country));
-          return $("#" + div_id).before($('<br>'));
+          return $("#" + div_id).before($('<br />'));
         }
       }
     });
   };
 
-  append_description = function(div_id) {
-    return function(data) {
-      $("#" + div_id).append($('<em>', {
+  append_description = function(div_id, data) {
+      var sought_id = "#" + div_id;
+      console.log('seeking ' + sought_id);
+      $(sought_id).append($('<em>', {
         id: "" + div_id + "_description"
       }).text(data.description));
       if (_.values(data.features[0])[2].location_precision === 'unlocated') {
         $("#" + div_id).addClass('unlocated');
       }
       return append_modern_country("" + div_id + "_description", data.reprPoint[1], data.reprPoint[0]);
-    };
   };
 
+  append_details = function(maps, pid) {
+    /* map */
+    return function(data) {
+        maps[pid] = pleiades_map(data);
+        append_description('description-' + pid, data)
+    }
+  };
+  
   populate_results = function(results) {
-    var col, i, result, row, uid, _i, _j, _len, _ref, _ref1, _results;
+    var col, i, result, row, uid, _i, _j, _len, _ref, _ref1, _results, mapdiv;
+    var maps = {};
     $('#results').empty();
     _results = [];
     for (i = _i = 0, _ref = results.length; _i <= _ref; i = _i += 3) {
@@ -73,8 +115,15 @@
         col = $('<div>').attr('class', 'col-md-4');
         uid = _.uniqueId('results-col-');
         col.attr('id', uid);
-        col.append($('<p>').text("" + (result[0].join(', ')) + " - ").append(window.pleiades_link(result[1])));
-        col.append(geojson_embed(result[1]));
+        col.append($('<div>').text("" + (result[0].join(', ')) + " - ").append(window.pleiades_link(result[1])));
+        /* col.append(geojson_embed(result[1])); */
+        mapdiv = $('<div>').attr('class', 'search-map');
+        mapdiv.attr('id', 'map-' + result[1]);
+        col.append(mapdiv);
+        descdiv = $('<div>').attr('class', 'search-description');
+        descdiv.attr('id', 'description-' + result[1]);
+        col.append(descdiv);
+        row.append(col);
         $.ajax("https://raw.githubusercontent.com/ryanfb/pleiades-geojson/gh-pages/geojson/" + result[1] + ".geojson", {
           type: 'GET',
           dataType: 'json',
@@ -82,9 +131,8 @@
           error: function(jqXHR, textStatus, errorThrown) {
             return console.log("AJAX Error: " + textStatus);
           },
-          success: append_description(uid)
+          success: append_details(maps, result[1])
         });
-        row.append(col);
       }
       $('#results').append(row);
       _results.push($('#results').append($('<br>')));
