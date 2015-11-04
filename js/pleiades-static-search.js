@@ -73,24 +73,32 @@
           $("#" + div_id).before($('<span>', {
             style: 'color:gray;'
           }).text(modern_country));
-          return $("#" + div_id).before($('<br>'));
+          return $("#" + div_id).before($('<br />'));
         }
       }
     });
   };
 
-  append_description = function(div_id) {
-    return function(data) {
-      $("#" + div_id).append($('<em>', {
+  append_description = function(div_id, data) {
+      var sought_id = "#" + div_id;
+      console.log('seeking ' + sought_id);
+      $(sought_id).append($('<em>', {
         id: "" + div_id + "_description"
       }).text(data.description));
       if (_.values(data.features[0])[2].location_precision === 'unlocated') {
         $("#" + div_id).addClass('unlocated');
       }
       return append_modern_country("" + div_id + "_description", data.reprPoint[1], data.reprPoint[0]);
-    };
   };
 
+  append_details = function(maps, pid) {
+    /* map */
+    return function(data) {
+        maps[pid] = pleiades_map(data);
+        append_description('description-' + pid, data)
+    }
+  };
+  
   populate_results = function(results) {
     var col, i, result, row, uid, _i, _j, _len, _ref, _ref1, _results, mapdiv;
     var maps = {};
@@ -104,11 +112,15 @@
         col = $('<div>').attr('class', 'col-md-4');
         uid = _.uniqueId('results-col-');
         col.attr('id', uid);
-        col.append($('<p>').text("" + (result[0].join(', ')) + " - ").append(window.pleiades_link(result[1])));
+        col.append($('<div>').text("" + (result[0].join(', ')) + " - ").append(window.pleiades_link(result[1])));
         /* col.append(geojson_embed(result[1])); */
         mapdiv = $('<div>').attr('class', 'search-map');
         mapdiv.attr('id', 'map-' + result[1]);
         col.append(mapdiv);
+        descdiv = $('<div>').attr('class', 'search-description');
+        descdiv.attr('id', 'description-' + result[1]);
+        col.append(descdiv);
+        row.append(col);
         $.ajax("https://raw.githubusercontent.com/ryanfb/pleiades-geojson/gh-pages/geojson/" + result[1] + ".geojson", {
           type: 'GET',
           dataType: 'json',
@@ -116,13 +128,8 @@
           error: function(jqXHR, textStatus, errorThrown) {
             return console.log("AJAX Error: " + textStatus);
           },
-          success: function(data) {
-            console.log('trying ' + data['id']);
-            maps[data['id']] = pleiades_map(data);
-            append_description(uid)   
-          }
+          success: append_details(maps, result[1])
         });
-        row.append(col);
       }
       $('#results').append(row);
       _results.push($('#results').append($('<br>')));
