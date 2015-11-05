@@ -5,22 +5,44 @@
    ========================================================================== */
 
 body {padding-top:50px;}
+h2 {font-size: 18px;}
+/* .disclaimer {font-size: smaller; opacity:0.7; } */
 .map-wrapper {padding: 0px}
-#map {height:400px; display:block;}
-div.unlocated iframe {opacity: 0.25;}
+#map {height:60vh; display:block;}
 
-legend {border: none; text-align: center; padding: 6px 12px; margin-top: 20px; margin-bottom: 0px}
+.pleiades-staticsearch {padding:0em;}
+.pleiades-staticsearch legend {border: none; text-align: center; padding: 0.5em 1em; margin-top: 1.5em; margin-bottom: 0px}
 
-.pleiades-description > div {padding:1em 2em;}
-.pleiades-description p {padding: 1em;}
-.pleiades-support > div {padding:1em 2em;}
-.pleiades-support .thumbnail {border:none; box-shadow:none;}
-.pleiades-support .thumbnail img {max-height: 150px;}
-.pleiades-support a[href*=credits] {font-size: 150%; letter-spacing: 2px}
+.pleiades-description > div {padding:1em 2em 0em}
+p {max-width: 35em; margin: 0px 0px 1em}
+p:last-child {margin-bottom: 0px}
 
-.pleiades-rights {background: #333;
-    height: 40px;
-    line-height: 40px;color:white;}
+.pleiades-support.tier1 > div {padding:1em 2em;}
+.pleiades-support.tier2 > div {padding: 0px}
+.pleiades-support.tier2 > div > div {padding: 1em 2em;}
+.pleiades-support p {text-align: inherit;}
+.pleiades-support .caption p {text-align: left}
+.pleiades-support .thumbnail {text-align: center; border:none; box-shadow:none;}
+.pleiades-support .thumbnail.pleiades-wide img {max-height: 100px;}
+.pleiades-support.tier2 .thumbnail.pleiades-wide img {max-width: 350px; width: 100%}
+.pleiades-support .thumbnail.pleiades-symmetrical img {max-height: 100px;}
+.pleiades-support .thumbnail.pleiades-tall img {max-height: 150px;}
+.pleiades-support a[href*=credits] {font-size: 18px; letter-spacing: 2px}
+
+footer {
+    background-color: #F9F9FF;
+    padding: 1em;
+    margin-top: 1em;
+}
+.pleiades-rights p {
+    max-width: 800px;
+    text-align: center;
+    margin: 1em 0px 0px;
+}
+.pleiades-rights p:first-child {
+    margin-top: 0px;
+}
+.pleiades-rights br {display: none;}
 
 #results > div > div {padding:2em;}
 
@@ -38,7 +60,32 @@ div.search-map {height: 200px; border: 1px solid #BBBBBB;}
 .search-map .leaflet-tile-pane {opacity:0.5;}
 .search-map:hover .leaflet-tile-pane {opacity:1;}
 
+@media (min-width: 36em) {
+    p { margin-left: auto; margin-right: auto;}
+}
+@media (min-width: 768px) {
+    #map {height: 60vh; max-height: 400px}
+    .pleiades-staticsearch {margin: 1em 0px 1em}
+    .pleiades-description > div:first-child > p {float: right}
+    .pleiades-description > div:nth-child(2) > p {float: left}
+    .pleiades-support .thumbnail.pleiades-wide img {max-width: 325px;}
+    .pleiades-support.tier1 {margin-bottom: 2em;}
+/*    .pleiades-support.tier2 {border: 1px solid blue}
+    .pleiades-support.tier2 > div {border: 1px solid green}
+    .pleiades-support.tier2 > div > div {border: 1px solid red} */
+    .pleiades-support .thumbnail.pleiades-symmetrical img {max-height: 125px;}
+    footer { margin-top: 2em; padding: 2em}
+    .pleiades-rights p {margin: 2em 0px 0px}
+    .pleiades-rights p:first-child {margin-top: 0px;}
+}
 
+@media (min-width: 1000px) {
+    .pleiades-support.tier2 {width: 975px; margin-left: auto; margin-right: auto; padding: 0px}
+    .pleiades-support.tier2 > div {width: 975px; margin: 0px; padding: 0px;}
+    .pleiades-support.tier2 > div > div {width: 325px}
+    .pleiades-rights {width: 800px; padding-left: 0px; padding-right: 0px; margin-left: auto; margin-right: auto}
+    .pleiades-rights br {display: block;}
+}
 
 
 
