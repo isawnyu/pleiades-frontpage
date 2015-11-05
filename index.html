@@ -110,9 +110,10 @@
         ></div>
     </div>
    
-      <!-- pleiades static search -->
+    <!-- container -->
     <div class="container-fluid">
-      <div class="row">
+      <!-- pleiades static search -->
+      <div class="row pleiades-staticsearch">
         <div class="ui-widget col-md-4 col-md-offset-4">
           <form>
             <fieldset>
@@ -123,12 +124,12 @@
         </div>
       </div>
       <div class="row">
-        <div id="results" class="container-fluid"></div>
+        <div id="results" class="container-fluid pleiades-staticsearch-results"></div>
       </div>
       
       <!-- pleiades description -->
       <div class="row pleiades-description">
-        <div class="col-md-offset-2 col-md-4">
+        <div class="col-lg-offset-2 col-lg-4 col-md-offset-1 col-md-5 col-sm-6 col-xs-12">
           <p><i>Pleiades</i> is a community-built gazetteer and graph of ancient places. It
             publishes authoritative information about ancient places and spaces, providing unique
             services for finding, displaying, and reusing that information under open license. It
@@ -136,7 +137,7 @@
             widening array of computational research and visualization tools that support
             humanities teaching and research. <br /><a href="browse">Learn more</a>.</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12">
           <p><i>Pleiades</i> is a continuously published scholarly reference work for the 21st
             century. We embrace the new paradigm of citizen humanities, encouraging contributions
             from any knowledgeable person and doing so in a context of pervasive peer review.
@@ -148,18 +149,19 @@
       
       <!-- pleiades sponsors -->
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-xs-12">
+          <hr />
           <h2 class="text-center">Pleiades is brought to you by:</h2>
         </div>
       </div>
-      <div class="row pleiades-support">
-        <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">
+      <div class="row pleiades-support text-center">
+        <div>
           <p><strong><a href="http://pleiades.stoa.org/credits">our volunteer content contributors</a></strong><br /><br />and</p>
         </div>
       </div>
-      <div class="row pleiades-support">
-        <div class="col-sm-3 col-sm-offset-3 col-md-4 col-md-offset-4 text-center">
-          <div class="thumbnail">
+      <div class="row pleiades-support tier1">
+        <div>
+          <div class="thumbnail pleiades-wide">
             <a href="http://www.neh.gov"><img id="nehlogo" src="img/neh_50_logo_2color.png"
                 alt="Logo of the National Endowment for the Humanities" /></a></div>
           <div class="caption">
@@ -179,10 +181,10 @@
           </div>
         </div>
       </div>
-      <div class="row pleiades-support">
-        <div class="col-md-offset-2 col-md-8">
-          <div class="col-sm-2 col-md-4 text-center">
-            <div class="thumbnail">
+      <div class="row pleiades-support tier2">
+        <div class="col-sm-12 col-md-12 col-lg-10 col-lg-offset-1">
+          <div class="col-sm-4 col-md-4 col-lg-4">
+            <div class="thumbnail pleiades-symmetrical">
               <a href="http://awmc.unc.edu"><img src="img/logo-awmc.jpg"
                   alt="Logo of the Ancient World Mapping Center at the University of North Carolina at Chapel Hill"
                  /></a></div>
@@ -192,8 +194,8 @@
                 North Carolina at Chapel Hill.</p>
             </div>
           </div>
-          <div class="col-sm-2 col-md-4 text-center">
-            <div class="thumbnail"><a href="http://www.stoa.org"><img src="img/stoa.jpg"
+          <div class="col-sm-4 col-md-4 col-lg-4">
+            <div class="thumbnail pleiades-wide"><a href="http://www.stoa.org"><img src="img/stoa.jpg"
                   alt="Logo of the Stoa Consortium" /></a></div>
             <div class="caption">
               <p>Development hosting and other project incubation support was provided between 2000
@@ -201,8 +203,8 @@
                 the <a href="http://www.stoa.org">Stoa Consortium</a>.</p>
             </div>
           </div>
-          <div class="col-sm-2 col-md-4 text-center">
-            <div class="thumbnail">
+          <div class="col-sm-4 col-md-4 col-lg-4">
+            <div class="thumbnail pleiades-tall">
               <a href="http://isaw.nyu.edu"><img src="img/logo-isaw.svg"
                   alt="Logo of the Institute for the Study of the Ancient World at New York University"
                  /></a></div>
@@ -215,12 +217,16 @@
         </div>
       </div>
       
-      <!-- footer -->
-      <footer>
-        <div class="pleiades-rights text-center">Some rights reserved (cc-by) Ancient World Mapping
-          Center, Institute for the Study of the Ancient World, and the Contributors.</div>
-      </footer>
     </div><!-- /container -->
+
+    <!-- footer -->
+    <footer>
+      <div class="pleiades-rights text-center">
+        <p>Content is governed by the copyrights of the <a href="http://pleiades.stoa.org/credits/">individual contributors</a> responsible for its creation. 
+          Some rights are reserved. <br />All content is distributed under the terms of a Creative Commons Attribution license (cc-by).</p>
+        <p>Software is 100% open source, governed by various copyrights and licenses. Consult <a href="https://github.com/isawnyu/pleiades-gazetteer#code-plone-buildout">the individual packages</a> for details.</p>
+      </div>
+    </footer>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
