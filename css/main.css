@@ -51,9 +51,11 @@ ul.ui-autocomplete {background-color:white;}
 nav.navbar-default { background-image: url('http://pleiades.stoa.org/img/background-slice.png'); }
 nav.navbar-default .navbar-brand {color: white; text-shadow: none; text-transform: uppercase; font-family: Trajan, Palatino, Garamond, "Times New Roman", Times, serif; font-size: 200%; letter-spacing: 2px}
 nav.navbar-default .navbar-brand:hover {color: white;}
-nav.navbar-default .navbar-nav > li > a {color: white; text-shadow: none; text-transform: lowercase; letter-spacing: 1px;}
-nav.navbar-default .navbar-nav > li > a:hover {text-decoration: underline; color: white;}
+
 .navbar-default .navbar-toggle .icon-bar {background-color: white}
+nav.navbar-default .navbar-nav { margin-top: 0px; margin-bottom: 0px}
+nav.navbar-default .navbar-nav > li { background-color: #E0FFD0; background-image: url('http://pleiades.stoa.org/img/background-slice.png'); }
+nav.navbar-default .navbar-nav > li > a { color: white; letter-spacing: 2px }
 
 div.search-map {height: 200px; border: 1px solid #BBBBBB;}
 
@@ -77,6 +79,8 @@ div.search-map {height: 200px; border: 1px solid #BBBBBB;}
     footer { margin-top: 2em; padding: 2em}
     .pleiades-rights p {margin: 2em 0px 0px}
     .pleiades-rights p:first-child {margin-top: 0px;}
+    nav.navbar-default .navbar-nav > li > a {color: white; text-shadow: none; text-transform: lowercase; letter-spacing: 1px;}
+    nav.navbar-default .navbar-nav > li > a:hover {text-decoration: underline; color: white;} 
 }
 
 @media (min-width: 1000px) {
