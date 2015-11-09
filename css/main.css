@@ -16,12 +16,12 @@ footer {
     padding: 1em;
     margin-top: 1em;
 }
-nav.navbar-default { background-image: url('http://pleiades.stoa.org/img/background-slice.png'); }
+nav.navbar-default { background-image: url('../img/background-slice.png'); }
 nav.navbar-default .navbar-brand {color: white; text-shadow: none; text-transform: uppercase; font-family: Trajan, 'Crimson Text', serif; font-size: 200%; font-weight: lighter; letter-spacing: 1.5px}
 nav.navbar-default .navbar-brand:hover {color: white;}
 .navbar-default .navbar-toggle .icon-bar {background-color: white}
 nav.navbar-default .navbar-nav { margin-top: 0px; margin-bottom: 0px}
-nav.navbar-default .navbar-nav > li { background-color: #E0FFD0; background-image: url('http://pleiades.stoa.org/img/background-slice.png'); }
+nav.navbar-default .navbar-nav > li { background-image: url('../img/background-slice.png'); }
 nav.navbar-default .navbar-nav > li > a { color: white; letter-spacing: 2px }
 
 /* items specific to index.html */
