@@ -55,8 +55,10 @@ div.search-map {height: 200px; border: 1px solid #BBBBBB;}
 .pleiades-support .thumbnail.pleiades-symmetrical img {max-height: 100px;}
 .pleiades-support .thumbnail.pleiades-tall img {max-height: 150px;}
 .pleiades-support a[href*=credits] {font-size: 18px; letter-spacing: 2px}
-
-
+.custom-popup .leaflet-popup-content-wrapper {border-radius: 8px}
+.custom-popup .leaflet-popup-content {padding: 14px;}
+.custom-popup .leaflet-popup-content * {line-height: 1.3em;}
+.custom-popup .leaflet-popup-content .title {margin-bottom: 10px}
 /* when wider than max comfortable reading width (set above), center the column in the container */
 @media (min-width: 490px) {    
     h1, h2, h3, h4, p, ul:not(.nav) { margin-left: auto; margin-right: auto;}

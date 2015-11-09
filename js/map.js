@@ -83,7 +83,7 @@ function mapPlace(pleiadesID) {
                     markerCurrent = new L.Marker(latLng, {
                         icon: placeIcon
                     });                    
-                    var popHtml = '<span class="title"><a href="http://pleiades.stoa.org/places/' + pleiadesID + '">' + placeTitle + '</a></span><br /><span class="description">' + placeDescription + '</span>';
+                    var popHtml = '<div class="title"><a href="http://pleiades.stoa.org/places/' + pleiadesID + '">' + placeTitle + '</a></div><div class="description">' + placeDescription + '</div>';
                     markerCurrent.bindPopup(popHtml, {offset: new L.Point(0, -27), closeButton: false});
                     map.setView(latLng, zoomMax, {
                         pan: {
@@ -94,7 +94,7 @@ function mapPlace(pleiadesID) {
                             animate: true
                         }
                     });
-                    timer = setTimeout(animateMap, 8000);
+                    timer = setTimeout(animateMap, 10000); 
                 } else {
                     animateMap()
                 }
