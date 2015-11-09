@@ -4,19 +4,46 @@
    Author's custom styles
    ========================================================================== */
 
-body {padding-top:50px;}
-h2 {font-size: 18px;}
-/* .disclaimer {font-size: smaller; opacity:0.7; } */
+/* general */
+body {padding-top:50px; font-family: 'Open Sans', sans-serif;}
+h1, h2, h3, h4, h5, h6, p, ul:not(.nav) {max-width: 490px; overflow:auto} /* maximum line length for ease of reading */
+h1, h2, h3, h4, h5, h6 {margin: 0.5em 0px 0.5em; font-family: 'Helvetica Neue', Helvetica, sans-serif;}
+p, ul:not(.nav) {margin: 0.5em 0px 0.5em}
+ul:not(.nav) {padding-left: 20px;}
+div > *:last-child {margin-bottom: 0px}
+footer {
+    background-color: #F9F9FF;
+    padding: 1em;
+    margin-top: 1em;
+}
+nav.navbar-default { background-image: url('http://pleiades.stoa.org/img/background-slice.png'); }
+nav.navbar-default .navbar-brand {color: white; text-shadow: none; text-transform: uppercase; font-family: Trajan, 'Crimson Text', serif; font-size: 200%; font-weight: lighter; letter-spacing: 1.5px}
+nav.navbar-default .navbar-brand:hover {color: white;}
+.navbar-default .navbar-toggle .icon-bar {background-color: white}
+nav.navbar-default .navbar-nav { margin-top: 0px; margin-bottom: 0px}
+nav.navbar-default .navbar-nav > li { background-color: #E0FFD0; background-image: url('http://pleiades.stoa.org/img/background-slice.png'); }
+nav.navbar-default .navbar-nav > li > a { color: white; letter-spacing: 2px }
+
+/* items specific to index.html */
 .map-wrapper {padding: 0px}
 #map {height:60vh; display:block;}
-
 .pleiades-staticsearch {padding:0em;}
 .pleiades-staticsearch legend {border: none; text-align: center; padding: 0.5em 1em; margin-top: 1.5em; margin-bottom: 0px}
-
 .pleiades-description > div {padding:1em 2em 0em}
-p {max-width: 35em; margin: 0px 0px 1em}
-p:last-child {margin-bottom: 0px}
-
+.pleiades-rights p {
+    max-width: 800px;
+    text-align: center;
+    margin: 1em 0px 0px;
+}
+.pleiades-rights p:first-child {
+    margin-top: 0px;
+}
+.pleiades-rights br {display: none;}
+#results > div > div {padding:2em;}
+ul.ui-autocomplete {background-color:white;}
+div.search-map {height: 200px; border: 1px solid #BBBBBB;}
+.search-map .leaflet-tile-pane {opacity:0.5;}
+.search-map:hover .leaflet-tile-pane {opacity:1;}
 .pleiades-support.tier1 > div {padding:1em 2em;}
 .pleiades-support.tier2 > div {padding: 0px}
 .pleiades-support.tier2 > div > div {padding: 1em 2em;}
@@ -29,61 +56,36 @@ p:last-child {margin-bottom: 0px}
 .pleiades-support .thumbnail.pleiades-tall img {max-height: 150px;}
 .pleiades-support a[href*=credits] {font-size: 18px; letter-spacing: 2px}
 
-footer {
-    background-color: #F9F9FF;
-    padding: 1em;
-    margin-top: 1em;
+
+/* when wider than max comfortable reading width (set above), center the column in the container */
+@media (min-width: 490px) {    
+    h1, h2, h3, h4, p, ul:not(.nav) { margin-left: auto; margin-right: auto;}
 }
-.pleiades-rights p {
-    max-width: 800px;
-    text-align: center;
-    margin: 1em 0px 0px;
-}
-.pleiades-rights p:first-child {
-    margin-top: 0px;
-}
-.pleiades-rights br {display: none;}
 
-#results > div > div {padding:2em;}
-
-ul.ui-autocomplete {background-color:white;}
-
-nav.navbar-default { background-image: url('http://pleiades.stoa.org/img/background-slice.png'); }
-nav.navbar-default .navbar-brand {color: white; text-shadow: none; text-transform: uppercase; font-family: Trajan, Palatino, Garamond, "Times New Roman", Times, serif; font-size: 200%; letter-spacing: 2px}
-nav.navbar-default .navbar-brand:hover {color: white;}
-
-.navbar-default .navbar-toggle .icon-bar {background-color: white}
-nav.navbar-default .navbar-nav { margin-top: 0px; margin-bottom: 0px}
-nav.navbar-default .navbar-nav > li { background-color: #E0FFD0; background-image: url('http://pleiades.stoa.org/img/background-slice.png'); }
-nav.navbar-default .navbar-nav > li > a { color: white; letter-spacing: 2px }
-
-div.search-map {height: 200px; border: 1px solid #BBBBBB;}
-
-.search-map .leaflet-tile-pane {opacity:0.5;}
-.search-map:hover .leaflet-tile-pane {opacity:1;}
-
-@media (min-width: 36em) {
-    p { margin-left: auto; margin-right: auto;}
-}
+/* when wider than bootstrap mobile breakpoint, readjust navigation, add more whitespace, and make better use of width */
 @media (min-width: 768px) {
+    /* specific to index */
     #map {height: 60vh; max-height: 400px}
     .pleiades-staticsearch {margin: 1em 0px 1em}
     .pleiades-description > div:first-child > p {float: right}
     .pleiades-description > div:nth-child(2) > p {float: left}
     .pleiades-support .thumbnail.pleiades-wide img {max-width: 325px;}
     .pleiades-support.tier1 {margin-bottom: 2em;}
-/*    .pleiades-support.tier2 {border: 1px solid blue}
-    .pleiades-support.tier2 > div {border: 1px solid green}
-    .pleiades-support.tier2 > div > div {border: 1px solid red} */
     .pleiades-support .thumbnail.pleiades-symmetrical img {max-height: 125px;}
-    footer { margin-top: 2em; padding: 2em}
     .pleiades-rights p {margin: 2em 0px 0px}
     .pleiades-rights p:first-child {margin-top: 0px;}
+    /* general */
+    p, ul:not(.nav) {margin: 1em auto 1em}
+    ul:not(.nav) {padding-left: 40px;}
+    ul:not(.nav) > li {margin-bottom: 0.3em}
+    footer { margin-top: 2em; padding: 2em}
     nav.navbar-default .navbar-nav > li > a {color: white; text-shadow: none; text-transform: lowercase; letter-spacing: 1px;}
     nav.navbar-default .navbar-nav > li > a:hover {text-decoration: underline; color: white;} 
 }
 
+/* for very wide screens, keep things from spreading out too far */
 @media (min-width: 1000px) {
+    /* specific to index */
     .pleiades-support.tier2 {width: 975px; margin-left: auto; margin-right: auto; padding: 0px}
     .pleiades-support.tier2 > div {width: 975px; margin: 0px; padding: 0px;}
     .pleiades-support.tier2 > div > div {width: 325px}
