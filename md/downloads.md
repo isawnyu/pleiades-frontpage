@@ -1,3 +1,15 @@
+title: Pleiades Downloads
+creator: Sean Gillies and Tom Elliott
+description: Regularly updated exports of all published Pleiades resources are available in multiple formats including CSV, KML, and RDF.
+date: 2015-11-09
+subjects: Geography, Ancient; Data, Geospatial; Downloading of data
+dctype:
+language:
+citation: 
+url: downloads
+ogtype:
+ogimage: 
+
 # Downloads
 
 ## Exports
