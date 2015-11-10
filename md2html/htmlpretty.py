@@ -54,7 +54,7 @@ def main (args):
     html = html.encode('utf-8')
     parser = etree.XMLParser(remove_blank_text=True)
     soup = etree.fromstring(html, parser=parser)
-    pretty = etree.tounicode(soup, method='html', pretty_print=True)
+    pretty = etree.tounicode(soup, method='xml', pretty_print=True)
 
     if outfn is None:
         sys.stdout= codecs.getwriter('utf-8')(sys.stdout)
