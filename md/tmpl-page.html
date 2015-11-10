@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="{language}">
+<!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link href='https://fonts.googleapis.com/css?family=Crimson+Text&amp;subset=latin' rel='stylesheet' type='text/css' />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans&amp;subset=latin' rel='stylesheet' type='text/css' />
+    
+    <title>{title}</title>
+    
+    <meta name="description" content="Pleiades gives scholars, students, and enthusiasts worldwide the ability to use, create, and share historical geographic information about the ancient world in digital form." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Dublin Core metadata -->
+    <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
+    <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" />
+    <meta name="DC.title" property="dc:title" itemprop="name" lang="en" content="{title}"/>
+    <meta name="DC.description" property="dc:description" itemprop="description" lang="en" content="{description}"/>
+    <meta name="DC.subject" property="dc:subject" itemprop="about" lang="en" content="{subjects}"/>
+    <meta name="DC.type" property="dc:type" lang="en" content="{dctype}"/>
+    <meta name="DC.date" property="dc:date" content="{date}"/>
+    <meta name="DC.publisher" property="dc:publisher" itemprop="publisher" lang="en" content="Institute for the Study of the Ancient World, New York University"/>
+    <meta name="DC.publisher" property="dc:publisher" itemprop="publisher" lang="en" content="Ancient World Mapping Center, University of North Carolina at Chapel Hill"/>
+    <meta name="DC.language" property="dc:language" itemprop="inLanguage" content="{language}"/>
+    <meta name="DC.rights" property="dc:rights" itemprop="copyrightHolder" lang="en" content="Copyright New York University, University of North Carolina at Chapel Hill, and the contributors."/>
+    <meta name="DCTERMS.license" property="dcterms:license" content="http://creativecommons.org/licenses/by/3.0/us/"/>
+    <meta name="DCTERMS.bibliographicCitation" property="dcterms:bibliographicCitation" lang="en" content="{citation}"/>
+    <meta name="DC.identifier" property="dc:identifier" itemprop="url" content="{url}"/>
+    <!-- editors: -->
+    <!-- <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Roger Bagnall"/> -->
+    <!-- end Dublin Core metadata -->
+    
+    <!-- open graph metadata -->
+    <meta property="og:title" content="{title}" />
+    <meta property="og:type" content="{ogtype}" />
+    <meta property="og:url" content="{url}" />
+    <meta property="og:image" content="{ogimage}" />
+    <meta property="og:description" content="{description}" />
+    <!-- end open graph metadata -->
+    
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  </head>
+  
+  <body>
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container-fluid ">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+            data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Pleiades</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse navbar-right">
+          <ul class="nav navbar-nav">
+            <li><a href="http://pleiades.stoa.org/home">about</a></li>
+            <li><a href="http://pleiades.stoa.org/news/blog">blog</a></li>
+            <li><a href="http://pleiades.stoa.org/places">browse</a></li>
+            <li><a href="http://pleiades.stoa.org/credits">credits</a></li>
+            <li><a href="http://pleiades.stoa.org/downloads">downloads</a></li>
+            <li><a href="http://pleiades.stoa.org/help">help</a></li>
+            <li><a href="http://pleiades.stoa.org/welcome">join/login</a></li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+      <div class="row">
+        {content}
+      </div>
+    </div><!-- /container -->
+
+    <!-- footer -->
+    <footer>
+      <div class="pleiades-rights text-center">
+        <p>Content is governed by the copyrights of the <a href="http://pleiades.stoa.org/credits/">individual contributors</a> responsible for its creation. 
+          Some rights are reserved. <br />All content is distributed under the terms of a Creative Commons Attribution license (cc-by).</p>
+        <p>Software is 100% open source, governed by various copyrights and licenses. Consult <a href="https://github.com/isawnyu/pleiades-gazetteer#code-plone-buildout">the individual packages</a> for details.</p>
+      </div>
+    </footer>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </body>
+</html>
