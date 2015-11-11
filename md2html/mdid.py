@@ -21,8 +21,10 @@ DEFAULTLOGLEVEL = logging.WARNING
 RX_HEADER = re.compile(ur'^(?P<hash>#+)\s+(?P<text>((?!{:).)*)\s*({:\s*)?(?P<attrs>((?!\s*}).)*)\s*}?\s*$')
 RX_ACRONYM = re.compile(ur'\(([A-Z]+)\)')
 RX_SPACES = re.compile(ur'\s+')
+RX_NOTPUNCT = re.compile(ur'^([-\p{L&}\p{Nd}\p{Z}\t\r\n\v\f]+)')
 
-STOP_WORDS = stopwords.words("english")
+STOP_WORDS = set(stopwords.words("english"))
+HALT_WORDS = set(['the', 'a', 'an', 'these', 'those', 'some', 'and', 'or', 'but'])
 
 def normalize_whitespace(s):
     s = s.strip()
@@ -59,6 +61,7 @@ def main (args):
             md = f.readlines()
 
     md_out = []
+    xmlids = {}
     for i,line in enumerate(md):
         if line.startswith(u'#'):
             logger.debug(u"line: {0}".format(line))
@@ -92,12 +95,25 @@ def main (args):
                 m = None
                 m = RX_ACRONYM.search(heading['text'])
                 if m is not None:
-                    attrs['id'] = m.group(1)    # ignores id specs greater than the first
+                    xmlid = m.group(1)    # ignores id specs greater than the first
                 else:
-                    attrs['id'] = heading['text']
-                attrs['id'] = u' '.join([word for word in attrs['id'].split() if word not in STOP_WORDS])
-                attrs['id'] = slugify(attrs['id'].lower())
-                logger.debug(u"created hdr_id='{0}'".format(attrs['id']))
+                    xmlid = heading['text']
+                xmlid = RX_NOTPUNCT.match(xmlid).group(0).strip().lower()
+                words = xmlid.split()
+                while words[0] in HALT_WORDS:
+                    words = words[1:]
+                if len(words) > 4:
+                    words = [word for word in words if word not in STOP_WORDS]
+                xmlid = slugify(u' '.join(words))
+                try:
+                    xmlids[xmlid] += 1
+                except KeyError:
+                    xmlids[xmlid] = 0
+                else:
+                    xmlid = xmlid + str(xmlids[xmlid])
+                logger.debug(u"created hdr_id='{0}'".format(xmlid))
+                attrs['id'] = xmlid
+
             attribs = u'#{id}'.format(**attrs)
             for k,v in attrs.iteritems():
                 if k == 'id':
