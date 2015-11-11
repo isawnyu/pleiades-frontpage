@@ -23,6 +23,8 @@ nav.navbar-default .navbar-brand:hover {color: white;}
 nav.navbar-default .navbar-nav { margin-top: 0px; margin-bottom: 0px}
 nav.navbar-default .navbar-nav > li { background-image: url('../img/background-slice.png'); }
 nav.navbar-default .navbar-nav > li > a { color: white; letter-spacing: 2px }
+.sidebar {border-top: 1px solid gray; margin: 2em 0px; padding-top: 1em}
+.sidebar h1, .sidebar h2, .sidebar h3, .sidebar h4, .sidebar h5, .sidebar h6 { font-size: 20px; }
 
 /* items specific to index.html */
 .map-wrapper {padding: 0px}
@@ -59,6 +61,7 @@ div.search-map {height: 200px; border: 1px solid #BBBBBB;}
 .custom-popup .leaflet-popup-content {padding: 14px;}
 .custom-popup .leaflet-popup-content * {line-height: 1.3em;}
 .custom-popup .leaflet-popup-content .title {margin-bottom: 10px}
+
 /* when wider than max comfortable reading width (set above), center the column in the container */
 @media (min-width: 490px) {    
     h1, h2, h3, h4, p, ul:not(.nav) { margin-left: auto; margin-right: auto;}
@@ -85,6 +88,35 @@ div.search-map {height: 200px; border: 1px solid #BBBBBB;}
     nav.navbar-default .navbar-nav > li > a:hover {text-decoration: underline; color: white;} 
 }
 
+/* handle sidebar and dogear when we're wide enough */
+@media (min-width: 992px) {
+    .sidebar {border: 1px solid #BBBBBB; margin-top: 1em; padding: 2em; min-height: 100vh; height: 100vh; }
+    .dogear {
+        box-shadow: -5px 5px 5px #DDDDDD;
+    }
+    .dogear:after{
+        content: '';
+        display: block;
+        right: 0px;
+        top: 0px; 
+        position: absolute;
+        border-top: 30px solid transparent;
+        border-left: 30px solid #BBBBBB;
+    }
+    .dogear:before{
+        content: '';
+        display: block;
+        width: 31px;
+        height: 31px;
+        position: absolute;
+        top: -1px;
+        right: -1px; 
+        bottom: 31px; 
+        border-right: 2px  solid white;
+        border-top: 2px solid white; 
+    }
+}
+
 /* for very wide screens, keep things from spreading out too far */
 @media (min-width: 1000px) {
     /* specific to index */
@@ -94,9 +126,5 @@ div.search-map {height: 200px; border: 1px solid #BBBBBB;}
     .pleiades-rights {width: 800px; padding-left: 0px; padding-right: 0px; margin-left: auto; margin-right: auto}
     .pleiades-rights br {display: block;}
 }
-
-
-
-
 
 
