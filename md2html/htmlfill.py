@@ -6,6 +6,7 @@ htmlfill.py : insert html content into html template
 
 import argparse
 import codecs
+from copy import deepcopy
 from functools import wraps
 import logging
 import os
@@ -18,6 +19,8 @@ from dateutil import parser as dateparser
 from lxml import etree
 
 DEFAULTLOGLEVEL = logging.WARNING
+BOOTSTRAP_SIDEBAR = u'col-xs-12 col-s-12 col-md-4 col-lg-3'
+BOOTSTRAP_SIDEBAR_SIB = u'col-xs-12 col-s-12 col-md-8 col-lg-9'
 
 def normalize_whitespace(s):
     s = s.strip()
@@ -51,6 +54,7 @@ def main (args):
     with codecs.open(tplfn, 'r', 'utf-8') as f:
         tpl = f.read()
 
+    # set up standard replacements for the template and read any specifics from the specified metadata file
     replacements = {
         u'title': u'',
         u'creator': u'',
@@ -65,8 +69,6 @@ def main (args):
         u'ogtype': u'article',
         u'ogimage': u'http://pleiades.stoa.org/images/pleiades-social-logo/image'
     }
-
-
 
     if metafn is not None:
         with codecs.open(metafn, 'r', 'utf-8') as f:
@@ -93,20 +95,53 @@ def main (args):
             if replacements['citation'] == u'':
                 replacements['citation'] = u'{creator}. &quot;{title}.&quot; Pleiades, {datehuman}. {url}.'.format(**replacements)
 
-
+    # read in the input file
     if infn is None:
         sys.stdin = codecs.getreader('utf-8')(sys.stdin)
         html = sys.stdin.read()
     else:
         with codecs.open(infn, 'r', 'utf-8') as f:
             html = f.read()
-    replacements[u'content'] = html
 
+    # do fixups on html content (e.g., style bulkups)
+    if u'sidebar' in html:
+        try:
+            doc = etree.fromstring(html)
+        except etree.XMLSyntaxError:
+            logger.warning ('BUSTED HTML:\n\n----------' + html + '\n-----------\n\n')
+            raise
+
+        # verify we have a sidebar div
+        sidebars = doc.xpath("//div[contains(@class, 'sidebar')]")
+        if len(sidebars) == 0:
+            pass
+        elif len(sidebars) > 1:
+            logger.warning('detected multiple sidebar divs in html; ignoring')
+        else:
+            # wrap the content in another row
+            html = u'<div class="sbholder">\n' + html + u'\n</div> <!-- end sidebar holder -->\n'
+            doc = etree.fromstring(html)
+            holder = doc.xpath("//div[contains(@class, 'sbholder')]")[0]
+            sidebars = doc.xpath("//div[contains(@class, 'sidebar')]")
+            for sidebar in sidebars:
+                parent = sidebar.getparent()
+                sidebar.attrib['class'] += u' {0}'.format(BOOTSTRAP_SIDEBAR)
+                holder.append(sidebar)
+            sib = holder[0]
+            try:
+                sib.attrib['class'] += u' {0}'.format(BOOTSTRAP_SIDEBAR_SIB)
+            except KeyError:
+                sib.attrib['class'] = BOOTSTRAP_SIDEBAR_SIB
+            html = etree.tounicode(doc, method='xml')
+
+    # fill in the template
+    replacements[u'content'] = html
     try:
         html = tpl.format(**replacements)
     except KeyError:
         raise
 
+    # write out the result
     if outfn is None:
         sys.stdout= codecs.getwriter('utf-8')(sys.stdout)
         sys.stdout.writelines(html)
