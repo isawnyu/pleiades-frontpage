@@ -29,13 +29,13 @@ If you run into "access denied" errors, please email pleiades.admin@nyu.edu with
 
 People around the world can benefit from your involvement in Pleiades. Joining is easy, and once you're a community member you can help by contributing better coordinates for sites; identifying placenames in ancient sources; writing essays about ancient places; adding links to good websites, books and articles; and even writing entirely new entries.
 
-__To join the community,__ please send an email to pleiades.admin@nyu.edu requesting a Pleiades username and password. Be sure to include your real full name, a valid email address, any institutional affiliation (don't worry if you don't have one!), and a brief statement as to your reasons for wanting to join.
-
-Please note that requesting and using a Pleiades account constitutes your agreement to all terms of the [Pleiades Contributor Agreement](/docs/policies/contributor-agreement). We also ask that you please read [our letter concerning Pleiades and privacy](docs/policies/privacy).
+[Log In](/login_form){: #log-in .btn .btn-lg .btn-primary }
 
 ### Sign Up
 
-### Log In
+__To join the community,__ please send an email to pleiades.admin@nyu.edu requesting a Pleiades username and password. Be sure to include your real full name, a valid email address, any institutional affiliation (don't worry if you don't have one!), and a brief statement as to your reasons for wanting to join.
+
+Please note that requesting and using a Pleiades account constitutes your agreement to all terms of the [Pleiades Contributor Agreement](/docs/policies/contributor-agreement). We also ask that you please read [our letter concerning Pleiades and privacy](docs/policies/privacy).
 
 ## A Request:<br />Please don't pummel our site {: .section:sidebar .section:dogear }
 
