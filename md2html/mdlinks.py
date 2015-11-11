@@ -17,6 +17,7 @@ from slugify import slugify
 
 DEFAULTLOGLEVEL = logging.WARNING
 RX_BARELINK = re.compile(ur'(?<!\])[\[\(](https?:\/\/[^\s\]\)]+)[\]\)](?!\()')
+RX_BAREEMAIL = re.compile(ur'(?<!\])[\[\(]([\p{L&}\p{Nd}!#\$%&\'\*\+-/=\?\^_`\{\|}~\.]+@[\p{L&}\p{Nd}\.]+(\?subject=[\p{L&}\p{Nd}\s]+)?)[\]\)](?!\()')
 
 def arglogger(func):
     """
@@ -56,6 +57,14 @@ def main (args):
             logger.warning(u"input line {0}: rewriting bare link {1}".format(i, m.group(1)))
             new_line = new_line[:m.start()] + u'[{0}]({0})'.format(m.group(1)) + new_line[m.end():]
             m = RX_BARELINK.search(new_line)
+        m = RX_BAREEMAIL.search(new_line)
+        while (m is not None):
+            logger.warning(u"input line {0}: rewriting bare email as mailto link {1}".format(i, m.group(1)))
+            if u'?subject=' in m.group(1):
+                new_line = new_line[:m.start()] + u'[{0}](mailto:{1})'.format(m.group(1).split('?subject')[0], m.group(1)) + new_line[m.end():]
+            else:
+                new_line = new_line[:m.start()] + u'[{0}](mailto:{0})'.format(m.group(1)) + new_line[m.end():]
+            m = RX_BAREEMAIL.search(new_line)
         md_out.append(new_line)
 
     if outfn is None:
