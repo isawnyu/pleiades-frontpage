@@ -236,9 +236,7 @@ div.search-map {
 @media (min-width: 992px) {
     .sidebar {
         border: 1px solid #bbb;
-        height: 100vh;
         margin-top: 1em;
-        min-height: 100vh;
         padding: 2em;
     }
     .dogear {
