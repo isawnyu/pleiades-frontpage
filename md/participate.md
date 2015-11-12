@@ -19,7 +19,7 @@ All of the resources (_places_, _names_, and _locations_, as well as _help_ and 
 * Make full use of the quick search on [our homepage](/) and the [advanced search form](http://pleiades.stoa.org/search_form); 
 * View, link, print, and download the web pages for all published geographic resources;
 * Access and download the alternate serializations for all published geographic resources;
-* Interact programmatically with published content via our API; and
+* Interact programmatically with published content via our [API](http://api.pleiades.stoa.org); and
 * Download content en masse via [our downloads page](/downloads).
 
 If you run into "access denied" errors, please email [pleiades.admin@nyu.edu] with detailed information, including the link to the page you were trying to access.
@@ -49,7 +49,7 @@ Please limit your browser interactions with the site to a single window or tab, 
 
 ### Bots
 
-Users of the API should abide by the "crawl delay" and other directives in the [robots.txt file](/robots.txt). Please interpret a 500-series [HTTP status code](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) (particularly 503 or 504) as a request to refrain from additional HTTP requests for 15 minutes or more. Note that repeated violation of our [crawl-delay directive](https://en.wikipedia.org/wiki/Robots_exclusion_standard#Crawl-delay_directive) may result in your bot being banned (403 for all requests). If you think your bot has been banned in error, please email [pleiades.admin@nyu.edu] to start a conversation about the problem.
+Users of the [API](http://api.pleiades.stoa.org) should abide by the "crawl delay" and other directives in the [robots.txt file](/robots.txt). Please interpret a 500-series [HTTP status code](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) (particularly 503 or 504) as a request to refrain from additional HTTP requests for 15 minutes or more. Note that repeated violation of our [crawl-delay directive](https://en.wikipedia.org/wiki/Robots_exclusion_standard#Crawl-delay_directive) may result in your bot being banned (403 for all requests). If you think your bot has been banned in error, please email [pleiades.admin@nyu.edu] to start a conversation about the problem.
 
 *[API]: Application Programming Interface
 *[HTTP]: Hypertext Transfer Protocol
