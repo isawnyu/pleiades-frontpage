@@ -67,7 +67,8 @@ def main (args):
         u'citation': u'',
         u'url': u'',
         u'ogtype': u'article',
-        u'ogimage': u'http://pleiades.stoa.org/images/pleiades-social-logo/image'
+        u'ogimage': u'http://pleiades.stoa.org/images/pleiades-social-logo/image',
+        u'depth': u'./'
     }
 
     if metafn is not None:
@@ -88,12 +89,15 @@ def main (args):
                 if v != u'':
                     if k == u'url':
                         if not v.startswith('http'):
+                            for i in range(0, len(v.split('/')) - 1):
+                                replacements['depth'] = '../' + replacements['depth']
                             v = u'http://pleiades.stoa.org/{0}'.format(v)
                     replacements[k] = v
             if replacements['datehuman'] == u'':
                 replacements['datehuman'] = dateparser.parse(replacements['date']).strftime(u'%d %B %Y')
             if replacements['citation'] == u'':
                 replacements['citation'] = u'{creator}. &quot;{title}.&quot; Pleiades, {datehuman}. {url}.'.format(**replacements)
+
 
     # read in the input file
     if infn is None:
