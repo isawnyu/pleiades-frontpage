@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en-US">
+<!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link href='https://fonts.googleapis.com/css?family=Crimson+Text&amp;subset=latin' rel='stylesheet' type='text/css' />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans&amp;subset=latin' rel='stylesheet' type='text/css' />
+    
+    <title>Pleiades Data Structure</title>
+    
+    <meta name="description" content="Pleiades gives scholars, students, and enthusiasts worldwide the ability to use, create, and share historical geographic information about the ancient world in digital form." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Dublin Core metadata -->
+    <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
+    <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" />
+    <meta name="DC.title" property="dc:title" itemprop="name" lang="en" content="Pleiades Data Structure"/>
+    <meta name="DC.description" property="dc:description" itemprop="description" lang="en" content=""/>
+    <meta name="DC.subject" property="dc:subject" itemprop="about" lang="en" content="Geography, Ancient; Data, Geospatial;"/>
+    <meta name="DC.type" property="dc:type" lang="en" content="Text"/>
+    <meta name="DC.date" property="dc:date" content="2015-11-14"/>
+    <meta name="DC.publisher" property="dc:publisher" itemprop="publisher" lang="en" content="Institute for the Study of the Ancient World, New York University"/>
+    <meta name="DC.publisher" property="dc:publisher" itemprop="publisher" lang="en" content="Ancient World Mapping Center, University of North Carolina at Chapel Hill"/>
+    <meta name="DC.language" property="dc:language" itemprop="inLanguage" content="en-US"/>
+    <meta name="DC.rights" property="dc:rights" itemprop="copyrightHolder" lang="en" content="Copyright New York University, University of North Carolina at Chapel Hill, and the contributors."/>
+    <meta name="DCTERMS.license" property="dcterms:license" content="http://creativecommons.org/licenses/by/3.0/us/"/>
+    <meta name="DCTERMS.bibliographicCitation" property="dcterms:bibliographicCitation" lang="en" content="The Editors. &quot;Pleiades Data Structure.&quot; Pleiades, 14 November 2015. http://pleiades.stoa.org/help/data-structure."/>
+    <meta name="DC.identifier" property="dc:identifier" itemprop="url" content="http://pleiades.stoa.org/help/data-structure"/>
+    <!-- editors: -->
+    <!-- <meta name="DC.creator" property="dc:creator" itemprop="editor" lang="en" content="Roger Bagnall"/> -->
+    <!-- end Dublin Core metadata -->
+    
+    <!-- open graph metadata -->
+    <meta property="og:title" content="Pleiades Data Structure" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://pleiades.stoa.org/help/data-structure" />
+    <meta property="og:image" content="http://pleiades.stoa.org/images/pleiades-social-logo/image" />
+    <meta property="og:description" content="" />
+    <!-- end open graph metadata -->
+    
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href=".././css/main.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  </head>
+  
+  <body>
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container-fluid ">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+            data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Pleiades</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse navbar-right">
+          <ul class="nav navbar-nav">
+            <li><a href="http://pleiades.stoa.org/home">about</a></li>
+            <li><a href="http://pleiades.stoa.org/news/blog">blog</a></li>
+            <li><a href="/places">places</a></li>
+            <li><a href="http://pleiades.stoa.org/credits">credits</a></li>
+            <li><a href="/downloads">downloads</a></li>
+            <li><a href="http://pleiades.stoa.org/help">help</a></li>
+            <li><a href="http://pleiades.stoa.org/participate">join/login</a></li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 col-s-12 col-md-12 col-lg-12">
+        <div id="pleiades-data-structure"><h1>Pleiades Data Structure</h1>
+<p><em>Pleiades</em> content is organized into three types of "information resource": <em>places</em>, <em>locations</em>, and <em>names</em>.</p>
+<div id="places"><h3>Places</h3>
+<p>In <em>Pleiades</em>, <em>places</em> are conceptual entities. They are objects of thought, speech, or writing, not tangible, mappable points on the earth’s surface. Even though they are usually tied closely to some aspect or feature of the physical world — a sea, a bay, a river, a mountain range, a pass, a road, a settlement, or an ethnic region — They have no spatial or temporal attributes of their own. Their primary quality is that, in the words of Yi-fu Tuan [1], they are "constructed by human experience."</p>
+<p>A <em>place</em> can be known only through a name mentioned an ancient source, without any surviving material correlate; conversely, an archaeological site can be understood as a <em>place</em> even if we do not know what it was called in antiquity. Even a modern city known or presumed to be located atop an ancient settlement is a <em>place</em> for <em>Pleiades</em> purposes. Places may be no larger than a family dwelling or as big as an empire, be temporally enduring or fleeting. They may expand, contract and evolve over time. A place may be unnamed, unlocated, falsely attested or even mythical. </p>
+</div><div id="locations-and-names"><h3>Locations and Names</h3>
+<p>The spatial aspects of <em>Pleiades</em> <em>places</em> (i.e., latitude and longitude coordinates), as well as their ancient and modern names, are addressed through two other conceptual entities: <em>locations</em> and <em>names</em>.</p>
+<p><em>Locations</em> connect <em>places</em> to coordinates in space. A <em>location</em> identifies a specific area of interest on the earth's surface that is associated with a <em>place</em> during a particular date range. A <em>place</em> can contain multiple <em>locations</em>. Depending on the state of the evidence, the association between <em>location</em> and <em>place</em> may vary in certainty; some <em>places</em>, attested by name in ancient sources, may have no associated <em>location</em> at all because modern scholarship cannot pinpoint reliably the ancient site or area in question.</p>
+<p><em>Names</em> are also connected with <em>places</em>. A <em>name</em> reflects the identity of a <em>place</em> in human language, not its physical location in the landscape. <em>Names</em> have no spatial coordinates, but they are always annotated with the time period(s) of the textual source(s) in which they are attested. As with <em>locations</em>, a single <em>place</em> can have multiple <em>names</em>, but an individual <em>name</em> can be associated with one and only one <em>place</em> (even if the same sequence of characters is attested as a <em>name</em> for another <em>place</em> as well).</p>
+</div><div id="database-structure"><h3>Database Structure</h3>
+<p>The <em>Pleiades</em> system documents and describes each of these three conceptual entities using a corresponding "information resource". Information resources are bundles of structured data that are similar in function to records in a database or index cards in a card file. Each <em>place</em> resource contains the <em>name</em> and <em>location</em> resources with which it is associated. This encapsulation is expressed in the layout of information on the <em>Pleiades</em> website, and in the hierarchical structure of the Uniform Resource Identifiers (URIs: web addresses) <em>Pleiades</em> assigns to each resource. Each <em>place</em> resource has a corresponding web page in <em>Pleiades</em>, and each of these <em>place</em> pages links to individual pages for all the <em>name</em> and <em>location</em> resources that have been associated with it. </p>
+<p>The structure and implementation of the <em>Pleiades</em> database are described in more detail in the <a href="http://pleiades.stoa.org/help/pleiades-data-model">Pleiades Data Model document</a>.</p>
+</div><div id="example"><h3>Example: Condercum</h3>
+<p>Consider the Roman fort of <em>Condercum</em> (at modern Benwell, near Hadrian's Wall in the United Kingdom). <em>Pleiades</em> has assigned the permanent identifying number 89150 to this conceptual place. Entering the <em>Pleiades</em> URI <a href="http://pleiades.stoa.org/places/89150">http://pleiades.stoa.org/places/89150</a> in a browser yields the corresponding <em>place</em> page. Links to individual pages for the associated <em>locations</em> ("Centerpoint of the ancient site", "Boundary of fort walls") and <em>names</em> ("Benwell", "Condercum") are listed under the appropriate headings. The map on the <em>place</em> page is derived on the basis of contained <em>location</em> resources.</p>
+</div></div>
+        </div>
+      </div>
+    </div><!-- /container -->
+
+    <!-- footer -->
+    <footer>
+      <div class="pleiades-rights text-center">
+        <p>Content is governed by the copyrights of the <a href="http://pleiades.stoa.org/credits/">individual contributors</a> responsible for its creation. 
+          Some rights are reserved. <br />All content is distributed under the terms of a Creative Commons Attribution license (cc-by).</p>
+        <p>Software is 100% open source, governed by various copyrights and licenses. Consult <a href="https://github.com/isawnyu/pleiades-gazetteer#code-plone-buildout">the individual packages</a> for details.</p>
+      </div>
+    </footer>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="js/googleanalytics.js"></script>
+  </body>
+</html>
