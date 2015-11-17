@@ -24,7 +24,7 @@ Information about ancient places in _Pleiades_ is organized differently from bot
 
 All published information resources in _Pleiades_ are free and open to the public. No login is required. The following starting points will help you find the content you seek:
 
-### [Search](/search) {: .btn .btn-lg .btn-primary .pleiades-btn-glossed }
+### [Search](/) {: .btn .btn-lg .btn-primary .pleiades-btn-glossed }
 
 [Visit our home page](/), click in the "search" box, and start typing a name, a _Pleiades_ ID, or a _Pleiades_ URI to see a list of possible matching _places_. As you type, the list automatically narrows, and thumbnail maps appear below. Click on the corresponding ID number or map icon to visit the appropriate _place_ page.
 
