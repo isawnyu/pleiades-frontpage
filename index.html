@@ -118,7 +118,7 @@
       <!-- pleiades static search -->
       <div class="row pleiades-staticsearch">
         <div class="ui-widget col-md-4 col-md-offset-4">
-          <form>
+          <form id="searchform">
             <fieldset>
               <legend id="placesSearchLegend">search for places</legend>
               <input id="search" class="form-control" placeholder="Enter a search term, Pleiades ID, or URL" />
@@ -240,6 +240,11 @@
     <script src="js/placecount.js"></script>
     <script src="js/pleiades-static-search.js"></script>
     <script src="js/map.js"></script>
+    <script>
+      $( "#searchform" ).submit(function ( event ) {
+        event.preventDefault();
+      });
+    </script>
     <script>
         $(document).ready(function(){placecount();});
     </script>
