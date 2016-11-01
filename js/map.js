@@ -26,7 +26,7 @@ map.attributionControl.addAttribution("Ancient topography by AWMC, 2014 (cc-by-n
 var placesURL = 'https://raw.githubusercontent.com/ryanfb/pleiades-geojson/gh-pages/name_index.json'
 var placesData = null
 var placeIcon = new L.Icon({
-    iconUrl: "http://atlantides.org/images/justice-blue.png",
+    iconUrl: "https://pleiades.stoa.org/map_icons/justice-blue.png",
     iconSize:     [32, 37],
     iconAnchor:   [16, 37]
 });
