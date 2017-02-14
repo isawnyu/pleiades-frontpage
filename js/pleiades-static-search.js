@@ -40,7 +40,7 @@
         map_this = new L.mapbox.map('map-' + data['id'], 'isawnyu.map-knmctlkh', mapOptionsInit);
         map_this.attributionControl.addAttribution("Ancient topography by AWMC, 2014 (cc-by-nc).");  
         latLng = new L.LatLng(reprPoint[1], reprPoint[0]);
-        marker_this = new L.Marker(latLng, {icon: placeIcon, win_url: "http://pleiades.stoa.org/places/" + data['id']});    
+        marker_this = new L.Marker(latLng, {icon: placeIcon, win_url: "https://pleiades.stoa.org/places/" + data['id']});    
         marker_this.addTo(map_this);
         marker_this.on('click', onMarkerClick);
         map_this.setView([reprPoint[1], reprPoint[0]], 7);
@@ -52,7 +52,7 @@
 
   window.pleiades_link = function(pleiades_id) {
     var link;
-    link = $('<a>').attr('href', "http://pleiades.stoa.org/places/" + pleiades_id);
+    link = $('<a>').attr('href', "https://pleiades.stoa.org/places/" + pleiades_id);
     link.attr('target', '_blank');
     link.text(pleiades_id);
     return link;
