@@ -26,7 +26,7 @@ map.attributionControl.addAttribution("Ancient topography by AWMC, 2014 (cc-by-n
 var placesURL = 'https://raw.githubusercontent.com/ryanfb/pleiades-geojson/gh-pages/name_index.json'
 var placesData = null
 var placeIcon = new L.Icon({
-    iconUrl: "https://pleiades.stoa.org/map_icons/justice-blue.png",
+    iconUrl: "/map_icons/justice-blue.png",
     iconSize:     [32, 37],
     iconAnchor:   [16, 37]
 });
@@ -75,32 +75,29 @@ function mapPlace(pleiadesID) {
             }
             var bounds = data["bbox"];
             if (bounds != null) {
-                var reprPoint = data["reprPoint"];
-                var placeTitle = data["title"];
-                var placeDescription = data["description"];
-                if (placeDescription.search("cited: ") == -1 && placeDescription.search("TAVO Index") == -1 && placeDescription.search("→") == -1) {
-                    latLng = new L.LatLng(reprPoint[1], reprPoint[0]);
-                    markerCurrent = new L.Marker(latLng, {
-                        icon: placeIcon
-                    });                    
-                    var popHtml = '<div class="title"><a href="https://pleiades.stoa.org/places/' + pleiadesID + '">' + placeTitle + '</a></div><div class="description">' + placeDescription + '</div>';
-                    markerCurrent.bindPopup(popHtml, {offset: new L.Point(0, -27), closeButton: false});
-                    map.setView(latLng, zoomMax, {
-                        pan: {
-                            animate: true,
-                            duration: 3
-                        },
-                        zoom: {
-                            animate: true
-                        }
-                    });
-                    timer = setTimeout(animateMap, 10000); 
-                } else {
-                    animateMap()
-                }
-            } else {
-                animateMap()
-            }
+                var rFeature = data['features'].filter(function (obj) { return obj.properties.description == 'representative point'})[0];
+                if (rFeature.geometry.type == 'Point') {
+                    var placeTitle = data["title"];
+                    var placeDescription = data["description"];
+                    if (placeDescription.search("cited: ") == -1 && placeDescription.search("TAVO Index") == -1 && placeDescription.search("→") == -1) {
+                        var lat = rFeature.geometry.coordinates[1]
+                        var lon = rFeature.geometry.coordinates[0]
+                        latLng = new L.LatLng(lat, lon);
+                        markerCurrent = new L.Marker(latLng, { icon: placeIcon });                    
+                        var popHtml = '<div class="title"><a href="/places/' + pleiadesID + '">' + placeTitle + '</a></div><div class="description">' + placeDescription + '</div>';
+                        markerCurrent.bindPopup(popHtml, {offset: new L.Point(0, -27), closeButton: false});
+                        map.setView(latLng, zoomMax, {
+                            pan: {
+                                animate: true,
+                                duration: 3
+                            },
+                            zoom: {
+                                animate: true
+                            }});
+                        timer = setTimeout(animateMap, 10000); 
+                    } else { animateMap() }
+                } else { animateMap() }
+            } else { animateMap() }
         })
         .fail(function() {
             console.log("failed to retrieve pleiades geojson from " + jsonURL)
