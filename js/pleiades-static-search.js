@@ -22,33 +22,35 @@
   pleiades_map = function(data) {
     var bounds = data["bbox"];
     if (bounds != null) {
-        var reprPoint = data["reprPoint"];
-        var mapOptionsInit = {
-            attributionControl: {compact: true},
-            boxZoom: true,
-            center: [reprPoint[1], reprPoint[0]],
-            doubleClickZoom: false,
-            dragging: true,
-            keyboard: false,
-            maxZoom: 7,
-            scrollWheelZoom: false,
-            tap: false,
-            touchZoom: false,
-            zoom: 5,
-            zoomControl: true
-        };      
-        map_this = new L.mapbox.map('map-' + data['id'], 'isawnyu.map-knmctlkh', mapOptionsInit);
-        map_this.attributionControl.addAttribution("Ancient topography by AWMC, 2014 (cc-by-nc).");  
-        latLng = new L.LatLng(reprPoint[1], reprPoint[0]);
-        marker_this = new L.Marker(latLng, {icon: placeIcon, win_url: "https://pleiades.stoa.org/places/" + data['id']});    
-        marker_this.addTo(map_this);
-        marker_this.on('click', onMarkerClick);
-        map_this.setView([reprPoint[1], reprPoint[0]], 7);
-        /* L.geoJson(data, { style: L.mapbox.simplestyle.style }).addTo(map_this); */
-        return map_this        
+        var rFeature = data['features'].filter(function (obj) { return obj.properties.description == 'representative point'})[0];
+        if (rFeature.geometry.type == 'Point') {
+          var reprPoint = [rFeature.geometry.coordinates[0], rFeature.geometry.coordinates[1]]
+          var mapOptionsInit = {
+              attributionControl: {compact: true},
+              boxZoom: true,
+              center: [reprPoint[1], reprPoint[0]],
+              doubleClickZoom: false,
+              dragging: true,
+              keyboard: false,
+              maxZoom: 7,
+              scrollWheelZoom: false,
+              tap: false,
+              touchZoom: false,
+              zoom: 5,
+              zoomControl: true
+          };      
+          map_this = new L.mapbox.map('map-' + data['id'], 'isawnyu.map-knmctlkh', mapOptionsInit);
+          map_this.attributionControl.addAttribution("Ancient topography by AWMC, 2014 (cc-by-nc).");  
+          latLng = new L.LatLng(reprPoint[1], reprPoint[0]);
+          marker_this = new L.Marker(latLng, {icon: placeIcon, win_url: "https://pleiades.stoa.org/places/" + data['id']});    
+          marker_this.addTo(map_this);
+          marker_this.on('click', onMarkerClick);
+          map_this.setView([reprPoint[1], reprPoint[0]], 7);
+          /* L.geoJson(data, { style: L.mapbox.simplestyle.style }).addTo(map_this); */
+          return map_this        
+        }
     }
-
-    }
+  }
 
   window.pleiades_link = function(pleiades_id) {
     var link;
