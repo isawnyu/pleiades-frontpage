@@ -76,16 +76,12 @@ function mapPlace(pleiadesID) {
             var bounds = data["bbox"];
             if (bounds != null) {
                 var rFeature = data['features'].filter(function (obj) { return obj.properties.description == 'representative point'})[0];
-                console.log(rFeature);
                 if (rFeature.geometry.type == 'Point') {
-                    console.log('point!')
                     var placeTitle = data["title"];
                     var placeDescription = data["description"];
                     if (placeDescription.search("cited: ") == -1 && placeDescription.search("TAVO Index") == -1 && placeDescription.search("→") == -1) {
-                        lat = rFeature.geometry.coordinates[1]
-                        console.log(lat)
-                        lon = rFeature.geometry.coordinates[0]
-                        console.log(lon)
+                        var lat = rFeature.geometry.coordinates[1]
+                        var lon = rFeature.geometry.coordinates[0]
                         latLng = new L.LatLng(lat, lon);
                         markerCurrent = new L.Marker(latLng, { icon: placeIcon });                    
                         var popHtml = '<div class="title"><a href="https://pleiades.stoa.org/places/' + pleiadesID + '">' + placeTitle + '</a></div><div class="description">' + placeDescription + '</div>';
