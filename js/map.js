@@ -75,32 +75,33 @@ function mapPlace(pleiadesID) {
             }
             var bounds = data["bbox"];
             if (bounds != null) {
-                var reprPoint = data["reprPoint"];
-                var placeTitle = data["title"];
-                var placeDescription = data["description"];
-                if (placeDescription.search("cited: ") == -1 && placeDescription.search("TAVO Index") == -1 && placeDescription.search("→") == -1) {
-                    latLng = new L.LatLng(reprPoint[1], reprPoint[0]);
-                    markerCurrent = new L.Marker(latLng, {
-                        icon: placeIcon
-                    });                    
-                    var popHtml = '<div class="title"><a href="https://pleiades.stoa.org/places/' + pleiadesID + '">' + placeTitle + '</a></div><div class="description">' + placeDescription + '</div>';
-                    markerCurrent.bindPopup(popHtml, {offset: new L.Point(0, -27), closeButton: false});
-                    map.setView(latLng, zoomMax, {
-                        pan: {
-                            animate: true,
-                            duration: 3
-                        },
-                        zoom: {
-                            animate: true
-                        }
-                    });
-                    timer = setTimeout(animateMap, 10000); 
-                } else {
-                    animateMap()
-                }
-            } else {
-                animateMap()
-            }
+                var rFeature = data['features'].filter(function (obj) { return obj.properties.description == 'representative point'})[0];
+                console.log(rFeature);
+                if (rFeature.geometry.type == 'Point') {
+                    console.log('point!')
+                    var placeTitle = data["title"];
+                    var placeDescription = data["description"];
+                    if (placeDescription.search("cited: ") == -1 && placeDescription.search("TAVO Index") == -1 && placeDescription.search("→") == -1) {
+                        lat = rFeature.geometry.coordinates[1]
+                        console.log(lat)
+                        lon = rFeature.geometry.coordinates[0]
+                        console.log(lon)
+                        latLng = new L.LatLng(lat, lon);
+                        markerCurrent = new L.Marker(latLng, { icon: placeIcon });                    
+                        var popHtml = '<div class="title"><a href="https://pleiades.stoa.org/places/' + pleiadesID + '">' + placeTitle + '</a></div><div class="description">' + placeDescription + '</div>';
+                        markerCurrent.bindPopup(popHtml, {offset: new L.Point(0, -27), closeButton: false});
+                        map.setView(latLng, zoomMax, {
+                            pan: {
+                                animate: true,
+                                duration: 3
+                            },
+                            zoom: {
+                                animate: true
+                            }});
+                        timer = setTimeout(animateMap, 10000); 
+                    } else { animateMap() }
+                } else { animateMap() }
+            } else { animateMap() }
         })
         .fail(function() {
             console.log("failed to retrieve pleiades geojson from " + jsonURL)
