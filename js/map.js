@@ -32,11 +32,6 @@ map = map.addControl(new mapboxgl.AttributionControl({
 /* animate the map with random Pleiades places */
 var placesURL = 'https://raw.githubusercontent.com/ryanfb/pleiades-geojson/gh-pages/name_index.json'
 var placesData = null
-var placeIcon = new L.Icon({
-    iconUrl: "/map_icons/justice-blue.png",
-    iconSize:     [32, 37],
-    iconAnchor:   [16, 37]
-});
 var markerCurrent = null
 var popupCurrent = null
 var timer = null

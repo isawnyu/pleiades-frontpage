@@ -16,38 +16,52 @@
     iframe.attr('src', "https://render.githubusercontent.com/view/geojson?url=https://raw.githubusercontent.com/ryanfb/pleiades-geojson/gh-pages/geojson/" + pleiades_id + ".geojson");
     return iframe;
   };
+  mapboxgl.accessToken = 'pk.eyJ1IjoiaXNhd255dSIsImEiOiJBWEh1dUZZIn0.SiiexWxHHESIegSmW8wedQ';
   function onMarkerClick(e) {
-      window.open(this.options.win_url);
+      window.open(this.win_url);
   }
   pleiades_map = function(data) {
     var bounds = data["bbox"];
     if (bounds != null) {
         var rFeature = data['features'].filter(function (obj) { return obj.properties.description == 'representative point'})[0];
         if (rFeature.geometry.type == 'Point') {
+          var srel = document.createElement('div');
+          srel.className = 'marker';
+          srel.style.backgroundImage = 'url(https://pleiades.stoa.org/map_icons/justice-blue.png)';
+          srel.style.width = '32px';
+          srel.style.height = '37px';
+        
           var reprPoint = [rFeature.geometry.coordinates[0], rFeature.geometry.coordinates[1]]
           var mapOptionsInit = {
               attributionControl: {compact: true},
               boxZoom: true,
-              center: [reprPoint[1], reprPoint[0]],
+              center: [reprPoint[0], reprPoint[1]],
               doubleClickZoom: false,
               dragging: true,
               keyboard: false,
               maxZoom: 7,
               scrollWheelZoom: false,
               tap: false,
+              interactive: false,
               touchZoom: false,
               zoom: 5,
-              zoomControl: true
-          };      
-          map_this = new L.mapbox.map('map-' + data['id'], 'isawnyu.map-knmctlkh', mapOptionsInit);
-          map_this.attributionControl.addAttribution("Ancient topography by AWMC, 2014 (cc-by-nc).");  
-          latLng = new L.LatLng(reprPoint[1], reprPoint[0]);
-          marker_this = new L.Marker(latLng, {icon: placeIcon, win_url: "/places/" + data['id']});    
+              zoomControl: true,
+              attributionControl: false,
+              container: 'map-' + data['id'],
+              style: 'mapbox://styles/isawnyu/cjzy7tgy71wvr1cmj256f4dqf'
+          };
+          var map_this = new mapboxgl.Map(mapOptionsInit);
+          map_this = map_this.addControl(new mapboxgl.AttributionControl({
+                  customAttribution: "Ancient topography by AWMC, 2014 (cc-by-nc)."
+              }));
+
+          var latLng = new mapboxgl.LngLat(reprPoint[0], reprPoint[1]);
+          var marker_this = new mapboxgl.Marker(srel).setLngLat(latLng);
           marker_this.addTo(map_this);
-          marker_this.on('click', onMarkerClick);
+          map_this.win_url = "/places/" + data['id'];
+          map_this.on('click', onMarkerClick);
           map_this.setView([reprPoint[1], reprPoint[0]], 7);
-          /* L.geoJson(data, { style: L.mapbox.simplestyle.style }).addTo(map_this); */
-          return map_this        
+          return map_this
         }
     }
   }
