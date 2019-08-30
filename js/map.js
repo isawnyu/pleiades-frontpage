@@ -1,8 +1,8 @@
 /* set up the main map */
-L.mapbox.accessToken = 'pk.eyJ1IjoiaXNhd255dSIsImEiOiJBWEh1dUZZIn0.SiiexWxHHESIegSmW8wedQ';
-var coordsCenter = [38.0, 62.0];
+mapboxgl.accessToken = 'pk.eyJ1IjoiaXNhd255dSIsImEiOiJBWEh1dUZZIn0.SiiexWxHHESIegSmW8wedQ';
+var coordsCenter = [62.0, 38.0];
 var coordsInit = coordsCenter;
-var zoomInit = 3;
+var zoomInit = 2;
 var zoomMax = 6;
 var mapOptionsInit = {
     attributionControl: {compact: true},
@@ -17,10 +17,17 @@ var mapOptionsInit = {
     tap: false,
     touchZoom: false,
     zoom: zoomInit,
-    zoomControl: false
+    zoomControl: false,
+    attributionControl: false,
+    style: 'mapbox://styles/isawnyu/cjzy7tgy71wvr1cmj256f4dqf',
+    container: 'map'
+    
           };
-var map = L.mapbox.map('map', 'isawnyu.map-knmctlkh', mapOptionsInit);
-map.attributionControl.addAttribution("Ancient topography by AWMC, 2014 (cc-by-nc).");
+
+var map = new mapboxgl.Map(mapOptionsInit);
+map = map.addControl(new mapboxgl.AttributionControl({
+        customAttribution: "Ancient topography by AWMC, 2014 (cc-by-nc)."
+    }));
 
 /* animate the map with random Pleiades places */
 var placesURL = 'https://raw.githubusercontent.com/ryanfb/pleiades-geojson/gh-pages/name_index.json'
@@ -37,7 +44,7 @@ var timer = null
 function displayPlace() {
     if (markerCurrent != null) {
         markerCurrent.addTo(map);
-        markerCurrent.openPopup()
+        popupCurrent.addTo(map);
     }    
 }
 map.on('zoomend', function() {
@@ -57,24 +64,23 @@ var placesReq = $.getJSON(placesURL, function(data) {
     });
 
 function animateMap() {
-
     var pleiadesID = placesData[Math.floor((Math.random() * placesData.length) + 1)][1];
     mapPlace(pleiadesID);
 }
 
 function mapPlace(pleiadesID) {
     var jsonURL = "https://raw.githubusercontent.com/ryanfb/pleiades-geojson/gh-pages/geojson/" + pleiadesID + ".geojson"
+    var el = document.createElement('div');
+    el.className = 'marker';
+    el.style.backgroundImage = 'url(https://pleiades.stoa.org/map_icons/justice-blue.png)';
+    el.style.width = '32px';
+    el.style.height = '37px';
     var placeReq = $.getJSON(jsonURL, function(data) {
     })
         .done(function(data) {
-            if (markerCurrent === undefined || markerCurrent === null) {
-            } else {
-                markerCurrent.closePopup();
-                map.removeLayer(markerCurrent);    
-                markerCurrent = null;
-            }
             var bounds = data["bbox"];
             if (bounds != null) {
+
                 var rFeature = data['features'].filter(function (obj) { return obj.properties.description == 'representative point'})[0];
                 if (rFeature.geometry.type == 'Point') {
                     var placeTitle = data["title"];
@@ -82,18 +88,32 @@ function mapPlace(pleiadesID) {
                     if (placeDescription.search("cited: ") == -1 && placeDescription.search("TAVO Index") == -1 && placeDescription.search("→") == -1) {
                         var lat = rFeature.geometry.coordinates[1]
                         var lon = rFeature.geometry.coordinates[0]
-                        latLng = new L.LatLng(lat, lon);
-                        markerCurrent = new L.Marker(latLng, { icon: placeIcon });                    
+                        if (markerCurrent === undefined || markerCurrent === null) {
+                        } else {
+                            markerCurrent.remove();
+                            popupCurrent.remove();
+                            markerCurrent = null;
+                            popupCurrent = null;
+                        }
+
+                        
+                        latLng = new mapboxgl.LngLat(lon, lat);
+                        markerCurrent = new mapboxgl.Marker(el).setLngLat(latLng);
                         var popHtml = '<div class="title"><a href="/places/' + pleiadesID + '">' + placeTitle + '</a></div><div class="description">' + placeDescription + '</div>';
-                        markerCurrent.bindPopup(popHtml, {offset: new L.Point(0, -27), closeButton: false});
-                        map.setView(latLng, zoomMax, {
-                            pan: {
-                                animate: true,
-                                duration: 3
-                            },
-                            zoom: {
-                                animate: true
-                            }});
+                        popupCurrent = new mapboxgl.Popup({
+                            anchor: "bottom",
+                            closeButton: false,
+                            maxWidth: "280px",
+                            offset: {"bottom": [0,-17]}
+                        }).setHTML(popHtml).setLngLat(latLng);
+                        
+                        markerCurrent.setPopup(popupCurrent);
+                        markerCurrent.addTo(map);
+                        map.flyTo({
+                            center:  latLng,
+                            zoom: zoomMax,
+                            speed: 0.5
+                        });
                         timer = setTimeout(animateMap, 10000); 
                     } else { animateMap() }
                 } else { animateMap() }
