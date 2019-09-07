@@ -195,7 +195,14 @@
       }
       return _results;
     })();
-    populate_results(matches.reverse());
+    var results = matches.reverse();
+    if (results.length > 0) {
+      populate_results(results);
+    } else {
+      var search_link = '<a href="search_form?SearchableText=' + value + '*">Advanced Search</a>';
+      var not_found = '<div class="row text-center">We found zero names that start with <b>' + value + '</b> - do an ' + search_link + ' instead?';
+      $('#results').html(not_found);
+    }
     return console.log("done searching");
   };
 
