@@ -1,5 +1,5 @@
 /* set up the main map */
-L.mapbox.accessToken = 'pk.eyJ1IjoiaXNhd255dSIsImEiOiJBWEh1dUZZIn0.SiiexWxHHESIegSmW8wedQ';
+L.mapbox.accessToken = 'pk.eyJ1IjoiaXNhd255dSIsImEiOiJja2FlaWk4MG0yaHY0MnNvemRneWF0d2RnIn0.FgwFQtymPTHYPYYha5mfHw';
 var coordsCenter = [38.0, 62.0];
 var coordsInit = coordsCenter;
 var zoomInit = 3;
