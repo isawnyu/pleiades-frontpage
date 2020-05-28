@@ -1,5 +1,5 @@
 /* set up the main map */
-mapboxgl.accessToken = 'pk.eyJ1IjoiaXNhd255dSIsImEiOiJBWEh1dUZZIn0.SiiexWxHHESIegSmW8wedQ';
+mapboxgl.accessToken = 'pk.eyJ1IjoiaXNhd255dSIsImEiOiJja2FlaWk4MG0yaHY0MnNvemRneWF0d2RnIn0.FgwFQtymPTHYPYYha5mfHw';
 var coordsCenter = [62.0, 38.0];
 var coordsInit = coordsCenter;
 var zoomInit = 2;
@@ -21,8 +21,7 @@ var mapOptionsInit = {
     attributionControl: false,
     style: 'mapbox://styles/isawnyu/cjzy7tgy71wvr1cmj256f4dqf',
     container: 'map'
-    
-          };
+};
 
 var map = new mapboxgl.Map(mapOptionsInit);
 map = map.addControl(new mapboxgl.AttributionControl({
