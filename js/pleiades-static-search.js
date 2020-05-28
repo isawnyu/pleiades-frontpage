@@ -227,7 +227,7 @@
         })();
         return $('#search').autocomplete({
           delay: 600,
-          minLength: 3,
+          minLength: 2,
           source: function(request, response) {
             var matches;
             matches = names.filter(function(name) {
