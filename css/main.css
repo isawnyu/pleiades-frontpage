@@ -108,6 +108,8 @@ nav.navbar>div.collapse>ul.navbar-nav>li.nav-item>a.nav-link:hover {
     padding: 1em 2em 0;
 }
 
+#results {}
+
 #results>div>div {
     padding: 2em;
 }
@@ -132,6 +134,10 @@ figcaption>p {
     font-style: italic;
 }
 
+#sponsors figcaption>p {
+    font-style: normal;
+}
+
 #placesSearchLegend {
     margin-top: 0px;
 }
@@ -144,4 +150,23 @@ figcaption>p {
 #results div.col-lg-8 {
     padding-top: 1rem;
     padding-bottom: 1rem;
+}
+
+figure#neh {}
+
+figure#stoa img {
+    width: 100%;
+}
+
+figure#isaw img {
+    max-height: 170px;
+}
+
+#contributors>p {
+    font-size: 2rem;
+}
+
+#sponsors>div.row {
+    margin-bottom: 3rem;
+    margin-top: 3rem;
 }
