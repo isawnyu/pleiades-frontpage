@@ -62,7 +62,7 @@ nav.navbar h1>a.navbar-brand {
     margin-right: auto;
 }
 
-#hero figure>img {
+#hero figure img {
     max-height: 40vh;
 }
 
@@ -169,4 +169,9 @@ figure#isaw img {
 #sponsors>div.row {
     margin-bottom: 3rem;
     margin-top: 3rem;
+}
+
+footer {
+    background-color: #eeeeee;
+    padding: 2rem;
 }
