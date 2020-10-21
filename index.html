@@ -1,22 +1,21 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="en-US">
-<!--<![endif]-->
+<!doctype html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <!-- Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Crimson+Text&amp;subset=latin' rel='stylesheet' type='text/css' />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans&amp;subset=latin,greek,greek-ext,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css' />
     <link href='https://fonts.googleapis.com/css?family=Amiri&amp;subset=arabic' rel='stylesheet' type='text/css' />
 
     <title>pleiades.stoa.org</title>
-
     <meta name="description" content="Pleiades gives scholars, students, and enthusiasts worldwide the ability to use, create, and share historical geographic information about the ancient world in digital form." />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Dublin Core metadata -->
     <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
@@ -67,172 +66,88 @@
     <meta property="og:description" content="Pleiades gives scholars, students, and enthusiasts worldwide the ability to use, create, and share historical geographic information about the ancient world in digital form." />
     <!-- end open graph metadata -->
 
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap-theme.min.css" />
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />
-    <script src='https://api.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css' rel='stylesheet' />
-    <link rel="stylesheet" href="css/main.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="css/main2.css" />
+
 </head>
 
 <body>
-    <!--[if lt IE 8]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container-fluid ">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-                <span class="navbar-brand">Pleiades</span>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse navbar-right">
-                <ul class="nav navbar-nav">
-                    <li><a href="/home">home</a></li>
-                    <li><a href="/places">places</a></li>
-                    <li><a href="/credits">credits</a></li>
-                    <li><a href="/participate">participate</a></li>
-                    <li><a href="/news/blog">blog</a></li>
-                    <li><a href="/docs">Documentation</a></li>
-                    <li><a href="/downloads">downloads</a></li>
+    <aside id="skip"><a href="#searchform">skip to search form</a></aside>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <h1><a class="navbar-brand" href="#">Pleiades</a></h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLanding" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarLanding">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/home">home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/places">places</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/credits">credits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/participate">participate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/news/blog">blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/docs">documentation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/downloads">downloads</a>
+                    </li>
                 </ul>
             </div>
-            <!--/.navbar-collapse -->
-        </div>
-    </nav>
-
-
-    <!-- dynamic map -->
-    <div class="container-fluid map-wrapper">
-        <div id="map" class="custom-popup" title="A slideshow of random places from Pleiades. Press P to pause/play, J to go back one step, or K to advance. Press Esc to terminate the slideshow. Reload the page to begin again."></div>
-    </div>
-
-    <!-- container -->
-    <div class="container-fluid">
-        <!-- pleiades static search -->
-        <div class="row pleiades-staticsearch">
-            <div class="ui-widget col-md-4 col-md-offset-4">
-                <form id="searchform">
-                    <fieldset>
-                        <legend id="placesSearchLegend">search for places</legend>
-                        <input id="search" class="form-control" placeholder="Start typing a name, Pleiades ID, or URL" />
-                    </fieldset>
-                </form>
-            </div>
-        </div>
-        <div class="row">
-            <div id="results" class="container-fluid pleiades-staticsearch-results">
-                <div class="row text-center">
-                    or try an <a href="/search_form">Advanced Search</a>
+        </nav>
+    </header>
+    <aside>
+        <div class="container-fluid" id="hero">
+            <div class="row justify-content-center">
+                <div id="coverage">
+                    <figure class="figure">
+                        <img src="img/coverage.png" class="figure-img img-fluid " />
+                        <figcaption class="figure-caption ">
+                            <p class="text-right"><a href="/coverage">about this coverage map</a></p>
+                        </figcaption>
+                    </figure>
                 </div>
             </div>
         </div>
-
-        <!-- pleiades description -->
-        <div class="row pleiades-description">
-            <div class="col-lg-offset-2 col-lg-4 col-md-offset-1 col-md-5 col-sm-6 col-xs-12">
-                <p><i>Pleiades</i> is a community-built gazetteer and graph of ancient places. It publishes authoritative information about ancient places and spaces, providing unique services for finding, displaying, and reusing that information under open
-                    license. It publishes not just for individual human users, but also for search engines and for the widening array of computational research and visualization tools that support humanities teaching and research. <br /><a href="http://pleiades.stoa.org/home">Learn more</a>.</p>
-            </div>
-            <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12">
-                <p><i>Pleiades</i> is a continuously published scholarly reference work for the 21st century. We embrace the new paradigm of citizen humanities, encouraging contributions from any knowledgeable person and doing so in a context of pervasive
-                    peer review.
-                    <i>Pleiades</i> welcomes your contribution, no matter how small, and we have a number of useful tasks suitable for volunteers of every interest. <br /><a href="http://pleiades.stoa.org/participate">Join and
-              help</a>.</p>
-            </div>
-        </div>
-
-        <!-- pleiades sponsors -->
-        <div class="row">
-            <div class="col-xs-12">
-                <hr />
-                <h2 class="text-center">Pleiades is brought to you by:</h2>
-            </div>
-        </div>
-        <div class="row pleiades-support text-center">
-            <div>
-                <p><strong><a href="http://pleiades.stoa.org/credits">our volunteer content contributors</a></strong><br /><br />and</p>
-            </div>
-        </div>
-        <div class="row pleiades-support tier1">
-            <div>
-                <div class="thumbnail pleiades-wide">
-                    <a href="http://www.neh.gov"><img id="nehlogo" src="img/neh_50_logo_2color.png" alt="Logo of the National Endowment for the Humanities" /></a>
+    </aside>
+    <main>
+        <div class="container-fluid">
+            <!-- pleiades static search -->
+            <div class="row pleiades-staticsearch text-center">
+                <div class="ui-widget col-md-4 offset-md-4">
+                    <form id="searchform">
+                        <fieldset>
+                            <legend id="placesSearchLegend">search for places</legend>
+                            <input id="search" class="form-control" placeholder="Start typing a name, Pleiades ID, or URL" />
+                        </fieldset>
+                        <p>or try an <a href="/search_form">Advanced Search</a></p>
+                    </form>
                 </div>
-                <div class="caption">
-                    <p>Pleiades has received significant, periodic support from the <a href="http://www.neh.gov">National Endowment for the Humanities</a> since 2006.</p>
-                    <p class="disclaimer">Grant numbers: <a href="https://securegrants.neh.gov/publicquery/main.aspx?f=1&amp;gn=HK-230973-15">HK-230973-15</a>, <a href="https://securegrants.neh.gov/publicquery/main.aspx?f=1&amp;gn=PA-51873-06">PA-51873-06</a>, <a href="https://securegrants.neh.gov/publicquery/main.aspx?f=1&amp;gn=PX-50003-08">PX-50003-08</a>,
-                        and <a href="https://securegrants.neh.gov/publicquery/main.aspx?f=1&amp;gn=PW-50557-10">PW-50557-10</a>. Any views, findings, conclusions, or recommendations expressed in this publication do not necessarily reflect those of the
-                        National Endowment for the Humanities.
-                    </p>
+            </div>
+            <div class="row">
+                <div id="results" class="container-fluid pleiades-staticsearch-results">
                 </div>
             </div>
         </div>
-        <div class="row pleiades-support tier2">
-            <div class="col-sm-12 col-md-12 col-lg-10 col-lg-offset-1">
-                <div class="col-sm-4 col-md-4 col-lg-4">
-                    <div class="thumbnail pleiades-symmetrical">
-                        <a href="http://awmc.unc.edu"><img src="img/logo-awmc.jpg" alt="Logo of the Ancient World Mapping Center at the University of North Carolina at Chapel Hill" /></a>
-                    </div>
-                    <div class="caption">
-                        <p>Additional support has been provided since 2000 by the <a href="http://awmc.unc.edu">Ancient World Mapping Center</a> at the University of North Carolina at Chapel Hill.</p>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-md-4 col-lg-4">
-                    <div class="thumbnail pleiades-wide">
-                        <a href="http://www.stoa.org"><img src="img/stoa.jpg" alt="Logo of the Stoa Consortium" /></a>
-                    </div>
-                    <div class="caption">
-                        <p>Development hosting and other project incubation support was provided between 2000 and 2008 by <a href="https://en.wikipedia.org/wiki/Ross_Scaife">Ross Scaife</a> and the <a href="http://www.stoa.org">Stoa Consortium</a>.</p>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-md-4 col-lg-4">
-                    <div class="thumbnail pleiades-tall">
-                        <a href="http://isaw.nyu.edu"><img src="img/logo-isaw.svg" alt="Logo of the Institute for the Study of the Ancient World at New York University" /></a>
-                    </div>
-                    <div class="caption">
-                        <p>Web hosting and additional support has been provided since 2008 by the <a href="http://isaw.nyu.edu">Institute for the Study of the Ancient World</a> at New York University.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </main>
 
-    </div>
-    <!-- /container -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx " crossorigin="anonymous "></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.11.0/underscore-min.js"></script>
+    <script src="js/pleiades-static-search-2.js"></script>
 
-    <!-- footer -->
-    <footer>
-        <div class="pleiades-rights text-center">
-            <p>Content is governed by the copyrights of the <a href="http://pleiades.stoa.org/credits/">individual contributors</a> responsible for its creation. Some rights are reserved. <br />All content is distributed under the terms of a Creative Commons
-                Attribution license (cc-by).</p>
-            <p>Software is 100% open source, governed by various copyrights and licenses. Consult <a href="https://github.com/isawnyu/pleiades-gazetteer#code-plone-buildout">the individual packages</a> for details.</p>
-        </div>
-    </footer>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-    <script src="js/placecount.js"></script>
-    <script src="js/pleiades-static-search.js"></script>
-    <script src="js/map.js"></script>
-    <script>
-        $("#searchform").submit(function(event) {
-            event.preventDefault();
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-            placecount();
-        });
-    </script>
 </body>
 
 </html>

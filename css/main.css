@@ -1,95 +1,101 @@
-
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-/* general */
 body {
     font-family: 'Open Sans', sans-serif;
-    padding-top: 50px;
+    color: #333333;
 }
-h1, h2, h3, h4, h5, h6, p, ul:not(.nav), .readingwidth, .pleiades-btn-panel {
-    max-width: 490px;
-    overflow: visible;
-} /* maximum line length for ease of reading */
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Helvetica Neue', Helvetica, sans-serif;
-    margin: .5em 0 .5em;
+
+#skip {
+    margin-left: .2rem;
 }
-p, ul:not(.nav) {
-    margin: .5em 0 .5em;
+
+a,
+a {
+    color: #2549ad;
+    text-decoration: underline;
 }
-.pleiades-btn-glossed > a {
-    color: white;
+
+a:hover,
+a:active {
+    text-decoration: none !important;
 }
-.pleiades-btn-glossed > a:hover {
-    text-decoration: none;
+
+figcaption>p {
+    color: #333333;
 }
-ul:not(.nav) {
-    padding-left: 20px;
+
+nav.navbar {
+    background-color: #2575ad !important;
+    padding: 0rem 1rem;
+    border-bottom: 1px solid white;
 }
-div > *:last-child {
-    margin-bottom: 0;
+
+nav.navbar a:hover,
+nav.navbar a:active {
+    background-color: white;
+    color: black !important;
 }
-a > abbr {
-    border: none !important;
-    cursor: pointer !important;
-}
-footer {
-    background-color: #f9f9ff;
-    margin-top: 1em;
-    padding: 1em;
-}
-nav.navbar-default {
-    background-image: url('../img/background-slice.png');
-}
-nav.navbar-default .navbar-brand {
+
+nav.navbar .navbar-brand {
     color: white;
     font-family: Trajan, 'Crimson Text', serif;
     font-size: 200%;
     font-weight: lighter;
-    letter-spacing: 1.5px;
+    letter-spacing: 0.1rem;
     text-shadow: none;
     text-transform: uppercase;
 }
-nav.navbar-default .navbar-brand:hover {
-    color: white;
-}
-.navbar-default .navbar-toggle .icon-bar {
-    background-color: white;
-}
-nav.navbar-default .navbar-nav {
-    margin-bottom: 0;
-    margin-top: 0;
-}
-nav.navbar-default .navbar-nav > li {
-    background-image: url('../img/background-slice.png');
-}
-nav.navbar-default .navbar-nav > li > a {
-    color: white;
-    letter-spacing: 2px;
-}
-.sidebar {
-    border-top: 1px solid gray;
-    margin: 2em 0;
-    padding-top: 1em;
-}
-.sidebar h1, .sidebar h2, .sidebar h3, .sidebar h4, .sidebar h5, .sidebar h6 {
-    font-size: 20px;
+
+nav.navbar h1 {
+    font-size: 1em;
+    margin: 0px;
 }
 
-/* items specific to index.html */
-.map-wrapper {
-    padding: 0;
+nav.navbar h1>a.navbar-brand {
+    text-decoration: none;
 }
-#map {
-    display: block;
-    height: 60vh;
+
+#hero {
+    padding: 0px;
 }
+
+#hero figure {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#hero figure>img {
+    max-height: 40vh;
+}
+
+#about {
+    padding: 2rem 4rem 0rem 2rem;
+    line-height: 170%;
+}
+
+nav.navbar>div.collapse>ul.navbar-nav>li.nav-item>a.nav-link {
+    color: white;
+    padding: 1rem;
+}
+
+nav.navbar>div.collapse>ul.navbar-nav>li.nav-item>a.nav-link:hover {
+    text-decoration: underline;
+}
+
+#coverage>figure {
+    margin: 0px;
+}
+
+#coverage>figure>img {
+    margin: 0px;
+}
+
+#coverage>figure>figcaption>p {
+    padding: 0rem .3rem;
+}
+
 .pleiades-staticsearch {
     padding: 0;
 }
+
 .pleiades-staticsearch legend {
     border: none;
     margin-bottom: 0;
@@ -97,222 +103,45 @@ nav.navbar-default .navbar-nav > li > a {
     padding: .5em 1em;
     text-align: center;
 }
-.pleiades-description > div {
+
+.pleiades-description>div {
     padding: 1em 2em 0;
 }
-.pleiades-rights p {
-    margin: 1em 0 0;
-    max-width: 800px;
-    text-align: center;
-}
-.pleiades-rights p:first-child {
-    margin-top: 0;
-}
-.pleiades-rights br {
-    display: none;
-}
-#results > div > div {
+
+#results>div>div {
     padding: 2em;
 }
+
 ul.ui-autocomplete {
     background-color: white;
 }
-div.search-map {
-    border: 1px solid #bbb;
-    height: 200px;
-}
-.search-map .leaflet-tile-pane {
-    opacity: .5;
-}
-.search-map:hover .leaflet-tile-pane {
-    opacity: 1;
-}
-.pleiades-support.tier1 > div {
-    padding: 1em 2em;
-}
-.pleiades-support.tier2 > div {
-    padding: 0;
-}
-.pleiades-support.tier2 > div > div {
-    padding: 1em 2em;
-}
-.pleiades-support p {
-    text-align: inherit;
-}
-.pleiades-support .caption p {
-    text-align: left;
-}
-.pleiades-support .thumbnail {
-    border: none;
-    box-shadow: none;
-    text-align: center;
-}
-.pleiades-support .thumbnail.pleiades-wide img {
-    max-height: 100px;
-}
-.pleiades-support.tier2 .thumbnail.pleiades-wide img {
-    max-width: 350px;
-    width: 100%;
-}
-.pleiades-support .thumbnail.pleiades-symmetrical img {
-    max-height: 100px;
-}
-.pleiades-support .thumbnail.pleiades-tall img {
-    max-height: 150px;
-}
-.pleiades-support a[href*=credits] {
-    font-size: 18px;
-    letter-spacing: 2px;
-}
-.custom-popup .leaflet-popup-content-wrapper {
-    border-radius: 8px;
-}
-.custom-popup .leaflet-popup-content {
-    padding: 14px;
-}
-.custom-popup .leaflet-popup-content * {
-    line-height: 1.3em;
-}
-.custom-popup .leaflet-popup-content .title {
-    margin-bottom: 10px;
+
+a,
+a {
+    color: #2549ad;
+    text-decoration: underline;
 }
 
-/* when wider than max comfortable reading width (set above), center the column in the container */
-@media (min-width: 490px) {
-    h1, h2, h3, h4, p, ul:not(.nav), .readingwidth, .pleiades-btn-panel {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .pleiades-btn-glossed {
-        float: left;
-        font-size: 16px;
-        margin-right: 15px;
-        margin-bottom: 25px;
-        margin-top: 0;
-        width: 110px;
-        white-space: normal;
-        clear: both;
-    }
-    .pleiades-btn-glossed + p {
-        margin-bottom: 25px;
-    }
+a:hover,
+a:active {
+    text-decoration: none !important;
 }
 
-/* when wider than bootstrap mobile breakpoint, readjust navigation, add more whitespace, and make better use of width */
-@media (min-width: 768px) {
-    /* specific to index */
-    #map {
-        height: 60vh;
-        max-height: 400px;
-    }
-    .pleiades-staticsearch {
-        margin: 1em 0 1em;
-    }
-    .pleiades-description > div:first-child > p {
-        float: right;
-    }
-    .pleiades-description > div:nth-child(2) > p {
-        float: left;
-    }
-    .pleiades-support .thumbnail.pleiades-wide img {
-        max-width: 325px;
-    }
-    .pleiades-support.tier1 {
-        margin-bottom: 2em;
-    }
-    .pleiades-support .thumbnail.pleiades-symmetrical img {
-        max-height: 125px;
-    }
-    .pleiades-rights p {
-        margin: 2em 0 0;
-    }
-    .pleiades-rights p:first-child {
-        margin-top: 0;
-    }
-    /* general */
-    p, ul:not(.nav) {
-        margin: 1em auto 1em;
-    }
-    ul:not(.nav) {
-        padding-left: 40px;
-    }
-    ul:not(.nav) > li {
-        margin-bottom: .3em;
-    }
-    footer {
-        margin-top: 2em;
-        padding: 2em;
-    }
-    nav.navbar-default .navbar-nav > li > a {
-        color: white;
-        letter-spacing: 1px;
-        text-shadow: none;
-        text-transform: lowercase;
-    }
-    nav.navbar-default .navbar-nav > li > a:hover {
-        color: white;
-        text-decoration: underline;
-    }
+figcaption>p {
+    color: #333333;
+    font-style: italic;
 }
 
-/* handle sidebar and dogear when we're wide enough */
-@media (min-width: 992px) {
-    .sidebar {
-        border: 1px solid #bbb;
-        margin-top: 1em;
-        padding: 2em;
-    }
-    .dogear {
-        box-shadow: -5px 5px 5px #ddd;
-    }
-    .dogear:after {
-        border-left: 30px solid #bbb;
-        border-top: 30px solid transparent;
-        content: '';
-        display: block;
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
-    .dogear:before {
-        border-right: 2px  solid white;
-        border-top: 2px solid white;
-        bottom: 31px;
-        content: '';
-        display: block;
-        height: 31px;
-        position: absolute;
-        right: -1px;
-        top: -1px;
-        width: 31px;
-    }
+#placesSearchLegend {
+    margin-top: 0px;
 }
 
-/* for very wide screens, keep things from spreading out too far */
-@media (min-width: 1000px) {
-    /* specific to index */
-    .pleiades-support.tier2 {
-        margin-left: auto;
-        margin-right: auto;
-        padding: 0;
-        width: 975px;
-    }
-    .pleiades-support.tier2 > div {
-        margin: 0;
-        padding: 0;
-        width: 975px;
-    }
-    .pleiades-support.tier2 > div > div {
-        width: 325px;
-    }
-    .pleiades-rights {
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 0;
-        padding-right: 0;
-        width: 800px;
-    }
-    .pleiades-rights br {
-        display: block;
-    }
+#results h2 {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+#results div.col-lg-8 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
